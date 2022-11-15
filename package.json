@@ -4,17 +4,19 @@
     "description": "Auction site",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier -w",
         "lint": "eslint src/**/*.js",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "unit": "npm run test-unit",
+        "test-unit": "jest",
+        "test": "npm run test-e2e"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/larssandell/Semester_3_Project_exame_2.git"
     },
     "keywords": [],
-    "author": "",
+    "author": "Lars Sandell",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/larssandell/Semester_3_Project_exame_2/issues"
@@ -23,6 +25,7 @@
     "devDependencies": {
         "eslint": "^8.27.0",
         "husky": "^8.0.2",
+        "jest": "^29.2.0",
         "lint-staged": "^13.0.3",
         "prettier": "^2.7.1"
     },
