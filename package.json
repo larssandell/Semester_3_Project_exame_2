@@ -1,20 +1,25 @@
 {
-  "name": "semester_3_project_exame_2",
-  "version": "1.0.1",
-  "description": "Auction site",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/larssandell/Semester_3_Project_exame_2.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/larssandell/Semester_3_Project_exame_2/issues"
-  },
-  "homepage": "https://github.com/larssandell/Semester_3_Project_exame_2#readme"
+    "name": "semester_3_project_exame_2",
+    "version": "1.0.1",
+    "description": "Auction site",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "format": "prettier -w"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/larssandell/Semester_3_Project_exame_2.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/larssandell/Semester_3_Project_exame_2/issues"
+    },
+    "homepage": "https://github.com/larssandell/Semester_3_Project_exame_2#readme",
+    "devDependencies": {
+        "eslint": "^8.27.0",
+        "prettier": "^2.7.1"
+    }
 }
