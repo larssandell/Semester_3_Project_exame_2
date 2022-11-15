@@ -1,3 +1,1 @@
-console.log('hello');
-
-function 
+console.log('object');

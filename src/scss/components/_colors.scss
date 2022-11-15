@@ -1,0 +1,14 @@
+@function getColour($colour) {
+    @return map-get($colors, $colour);
+}
+
+$colors: (
+    primary: #002e6b,
+    Light-blue: #7194c1,
+    bg-gray: #e5eaef,
+    bg-black: #000,
+    logo-sec: rgba(212, 175, 55, 1),
+    logo-2: #d2ac47,
+    main-bg: rgb(27, 27, 27),
+    footer-bg: rgba(52, 52, 52, 0.7),
+);
