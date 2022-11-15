@@ -37,14 +37,14 @@
         "sass": "^1.56.1"
     },
     "lint-staged": {
-        "*.js": [
+        "/src/js/*.js": [
             "prettier --write",
             "eslint --fix"
         ],
         "*.html": [
             "prettier --write"
         ],
-        "*.scss": [
+        "/src/scss/*.scss": [
             "prettier --write"
         ]
     },
