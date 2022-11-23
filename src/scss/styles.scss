@@ -1,4 +1,22 @@
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+
+$enable-responsive-font-sizes: true;
+
+$custom-theme-colors: (
+    'goldmain': #d2ac47,
+    'mainbg': #1b1b1b,
+    'footerbg': rgba(52, 52, 52, 0.7),
+    'opacitywhite': rgba(255, 255, 255, 0.399),
+    'darkcard': #424242,
+);
+@import './components/variables';
 @import './components/colors';
 @import './components/html';
 @import './components/header';
 @import './components/footer';
+@import './components/hamburger';
+@import './components/main';
+@import './components/cards';
+@import './components/modal';
+@import './components/account';

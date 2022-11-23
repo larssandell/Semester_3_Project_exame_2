@@ -24,3 +24,9 @@ export const fetchOptions = {
         Authorization: `Bearer ${token}`,
     },
 };
+export const getOptions = {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+};

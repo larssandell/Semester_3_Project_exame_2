@@ -1,32 +1,9 @@
-#header__grid {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: 'left center right';
-    align-items: center;
-    // max-height: 100px;
-
-    #header__left {
-        grid-area: left;
-    }
-    #header__center {
-        grid-area: center;
-        display: flex;
-        justify-content: center;
-    }
-    #header__right {
-        grid-area: right;
-        display: flex;
-        justify-content: end;
-    }
+header {
     .navbar-brand {
-        color: getColour(logo-2);
-    }
-    .nav-link {
-        color: #fff;
+        color: getColour(main-gold);
     }
     .nav-link.active {
-        color: getColour(logo-2);
+        color: getColour(main-gold);
     }
     .nav-link:hover,
     .nav-link:focus {
@@ -37,17 +14,56 @@
     }
     .dropdown-item:hover,
     .dropdown-item:focus {
-        background-color: getColour(logo-2);
+        background-color: getColour(main-gold);
     }
-    .search__icon {
-        // fill: #fff;
+
+    .navbar-nav {
+        text-align: right;
+    }
+    .nav__logo {
+        height: auto;
+        width: 50px;
+    }
+    .header__actions {
+        display: flex;
+        justify-content: end;
+    }
+}
+.navbar-nav {
+    .navbar-brand {
+        color: getColour(main-gold);
+    }
+    .nav-link {
+        color: #fff;
+    }
+    .nav-link.active {
+        text-decoration: underline;
+        text-decoration-color: getColour(main-gold);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+    }
+    .nav-link:hover,
+    .nav-link:focus {
+        color: getColour(main-gold);
     }
 }
 
 @media only screen and (max-width: 768px) {
-    #header__grid {
-        grid-template-areas:
-            'left . center'
-            '. . right';
+    // .custom__xs__container {
+    //     width: 90%;
+    // }
+    .custom__xs__row {
+        flex-direction: column;
+    }
+}
+@media only screen and (max-width: 380px) {
+    .header__logo {
+        display: flex;
+        justify-content: center;
+    }
+    .header__actions {
+        margin: 2px 0 0 15px;
+        text-align: center;
+        justify-content: center !important;
     }
 }

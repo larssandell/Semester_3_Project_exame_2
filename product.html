@@ -14,15 +14,17 @@
             href="node_modules/bootstrap/dist/css/bootstrap.min.css"
         />
         <link rel="icon" href="/img/icon-white-gold.png" />
-        <script type="module" src="./src/js/index.js"></script>
+        <!-- <script type="module" src="./src/js/index.js"></script>
+        <script type="module" src="./src/js/auctions.js"></script> -->
+        <script type="module" src="./src/js/components/product.js"></script>
         <script
             src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             defer
         ></script>
-        <title>Auction Wars</title>
+        <title>Auction Wars | title name</title>
     </head>
     <body class="d-flex flex-column min-vh-100">
-        <header class="sticky-top navbar-expand-md mb-4 navbar-dark bg-dark">
+        <header class="sticky-top navbar-expand-md navbar-dark mb-4 bg-dark">
             <div class="container custom__xs__container">
                 <div class="row align-items-center mt-1 header__grid__custom">
                     <div class="col header__logo">
@@ -47,7 +49,6 @@
                             data-bs-toggle="modal"
                             role="button"
                             href="#login__modal"
-                            type="button"
                         >
                             Login
                         </a>
@@ -60,6 +61,16 @@
                             href="#register__modal"
                         >
                             register
+                        </a>
+                        <a
+                            id="btn__logout"
+                            type="button"
+                            class="btn btn-outline-warning btn-sm ms-1 d-none"
+                            data-bs-toggle="modal"
+                            role="button"
+                            href="#"
+                        >
+                            Logout
                         </a>
                     </div>
                 </div>
@@ -127,7 +138,7 @@
                                         <li class="nav-item">
                                             <a
                                                 href="/index.html"
-                                                class="nav-link active"
+                                                class="nav-link"
                                                 >Home</a
                                             >
                                         </li>
@@ -154,7 +165,7 @@
             </div>
         </header>
         <main class="mb-auto">
-            <div
+            <!-- <div
                 id="loader"
                 class="d-flex align-items-center justify-content-center"
             >
@@ -162,87 +173,104 @@
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
-
-            <div class="container mt-3">
-                <div class="position-relative">
-                    <img
-                        src="/img/goldbannerslog.webp"
-                        class="img-fluid banner__img rounded-2"
-                        alt="Promo banner for the site"
-                    />
-                </div>
-                <!-- <div
-                    id="carouselIndicators"
-                    class="carousel slide"
-                    data-bs-ride="carousel"
-                >
-                    <div class="carousel-indicators">
-                        <button
-                            type="button"
-                            data-bs-target="#carouselIndicators"
-                            data-bs-slide-to="0"
-                            class="active"
-                            aria-current="true"
-                            aria-label="Slide 1"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselIndicators"
-                            data-bs-slide-to="1"
-                            aria-label="Slide 2"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselIndicators"
-                            data-bs-slide-to="2"
-                            aria-label="Slide 3"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselIndicators"
-                            data-bs-slide-to="3"
-                            aria-label="Slide 4"
-                        ></button>
-                    </div>
-                    <div
-                        id="slider"
-                        class="carousel-inner"
-                        style="width: 100%; height: 250px !important"
-                    ></div>
-                    <button
-                        class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="prev"
-                    >
-                        <span
-                            class="carousel-control-prev-icon"
-                            aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button
-                        class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next"
-                    >
-                        <span
-                            class="carousel-control-next-icon"
-                            aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div> -->
-            </div>
             <section>
                 <div class="container mt-4">
                     <div class="border-bottom mb-2 border-warning">
-                        <h3>New Arrivals:</h3>
+                        <h3>Auctions:</h3>
                     </div>
                     <div id="index__main" class="row gy-3 text-black"></div>
                 </div>
-            </section>
+            </section> -->
+            <div class="container mt-5 mb-5">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-10">
+                        <div class="card text-white bg-dark">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="images p-3">
+                                        <div class="text-center p-4">
+                                            <img
+                                                id="main-image"
+                                                src="/img/no-image.png"
+                                                width="250"
+                                                class="rounded-1 img-fluid"
+                                            />
+                                        </div>
+                                        <div class="thumbnail text-center">
+                                            <img
+                                                onclick="change_image(this)"
+                                                src="/img/no-image.png"
+                                                width="70"
+                                                class="rounded-1"
+                                            />
+                                            <img
+                                                onclick="change_image(this)"
+                                                src="/img/no-image.png"
+                                                width="70"
+                                                class="rounded-1"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="product p-4">
+                                        <div
+                                            class="d-flex justify-content-between align-items-center"
+                                        >
+                                            <div
+                                                class="d-flex align-items-center"
+                                            >
+                                                <i
+                                                    class="fa fa-long-arrow-left"
+                                                ></i>
+                                                <a
+                                                    href="/auctions.html"
+                                                    class=""
+                                                    >Back</a
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="mt-4 mb-3">
+                                            <span class="text-uppercase brand"
+                                                >Title</span
+                                            >
+                                            <div
+                                                class="price d-flex flex-row align-items-center"
+                                            ></div>
+                                        </div>
+                                        <p class="about">description</p>
+                                        <div class="sizes mt-5">
+                                            <p class="">Current bid: 5000</p>
+
+                                            <form id="bid__form " for="bidform">
+                                                <div class="input-group mb-3">
+                                                    <input
+                                                        type="number"
+                                                        class="form-control rounded-1"
+                                                        placeholder="Bid amount"
+                                                    />
+                                                    <div
+                                                        class="input-group-append"
+                                                    >
+                                                        <button
+                                                            class="btn btn-success ms-1"
+                                                            type="button"
+                                                            id="bid__btn"
+                                                        >
+                                                            Bid
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <p>Ends at: 12.12.12</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer>
             <div
