@@ -19,7 +19,7 @@
             src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             defer
         ></script>
-        <title>Auction Wars</title>
+        <title>Auction Wars | account name</title>
     </head>
     <body class="d-flex flex-column min-vh-100">
         <header class="sticky-top navbar-expand-md mb-4 navbar-dark bg-dark">
@@ -43,23 +43,32 @@
                     <div class="col header__actions">
                         <a
                             id="btn__login"
-                            class="btn btn-outline-light btn-sm"
+                            class="btn btn-outline-light btn-sm d-none"
                             data-bs-toggle="modal"
                             role="button"
                             href="#login__modal"
-                            type="button"
                         >
                             Login
                         </a>
                         <a
                             id="btn__register"
                             type="button"
-                            class="btn btn-outline-warning btn-sm ms-1"
+                            class="btn btn-outline-warning btn-sm ms-1 d-none"
                             data-bs-toggle="modal"
                             role="button"
                             href="#register__modal"
                         >
                             register
+                        </a>
+                        <a
+                            id="btn__logout"
+                            type="button"
+                            class="btn btn-outline-warning btn-sm ms-1"
+                            data-bs-toggle="modal"
+                            role="button"
+                            href="#"
+                        >
+                            Logout
                         </a>
                     </div>
                 </div>
@@ -127,7 +136,7 @@
                                         <li class="nav-item">
                                             <a
                                                 href="/index.html"
-                                                class="nav-link active"
+                                                class="nav-link"
                                                 >Home</a
                                             >
                                         </li>
@@ -141,7 +150,7 @@
                                         <li class="nav-item">
                                             <a
                                                 href="/account.html"
-                                                class="nav-link disabled pe-0"
+                                                class="nav-link active pe-0"
                                                 >Account</a
                                             >
                                         </li>
@@ -162,87 +171,145 @@
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <section
+                                    class="bg-dark container text-white rounded-3 mb-2 mb-md-1"
+                                >
+                                    <img
+                                        src="/img/noun-person-5178759.png"
+                                        class="rounded-circle mt-1 me-3 bg-light acc__avatar"
+                                        alt="avatar"
+                                        id="account__avatar"
+                                    />
+                                    <div class="col my-1">
+                                        <h4
+                                            class="text-center text-md-start mb-2 mt-2"
+                                        >
+                                            Account:
+                                        </h4>
+                                        <div class="card mb-4">
+                                            <div class="card-body text-black">
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <p class="mb-0">
+                                                            Name:
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <p
+                                                            class="text-muted mb-0"
+                                                        >
+                                                            Johnatan Smith
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <p class="mb-0">
+                                                            Email:
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <p
+                                                            class="text-muted mb-0"
+                                                        >
+                                                            example@example.com
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <p class="mb-0">
+                                                            Mobile
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <p
+                                                            class="text-muted mb-0"
+                                                        >
+                                                            (098) 765-4321
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-            <div class="container mt-3">
-                <div class="position-relative">
-                    <img
-                        src="/img/goldbannerslog.webp"
-                        class="img-fluid banner__img rounded-2"
-                        alt="Promo banner for the site"
-                    />
-                </div>
-                <!-- <div
-                    id="carouselIndicators"
-                    class="carousel slide"
-                    data-bs-ride="carousel"
-                >
-                    <div class="carousel-indicators">
-                        <button
-                            type="button"
-                            data-bs-target="#carouselIndicators"
-                            data-bs-slide-to="0"
-                            class="active"
-                            aria-current="true"
-                            aria-label="Slide 1"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselIndicators"
-                            data-bs-slide-to="1"
-                            aria-label="Slide 2"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselIndicators"
-                            data-bs-slide-to="2"
-                            aria-label="Slide 3"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselIndicators"
-                            data-bs-slide-to="3"
-                            aria-label="Slide 4"
-                        ></button>
+                                        <button
+                                            class="btn btn-outline-light mb-1"
+                                            type="button"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#avatarModal"
+                                        >
+                                            Edit
+                                        </button>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div
+                                    class="h-100 p-5 text-center border text-black bg-white rounded-3"
+                                >
+                                    <img
+                                        class="account__logo"
+                                        src="/img/dark-logo.png"
+                                    />
+                                    <h4 class="mt-4">Your credits: 5000</h4>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div
-                        id="slider"
-                        class="carousel-inner"
-                        style="width: 100%; height: 250px !important"
-                    ></div>
-                    <button
-                        class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="prev"
-                    >
-                        <span
-                            class="carousel-control-prev-icon"
-                            aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button
-                        class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next"
-                    >
-                        <span
-                            class="carousel-control-next-icon"
-                            aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div> -->
+                    <div class="col-md-6">
+                        <div
+                            class="h-100 p-5 rounded-3 bg-dark text-center text-white"
+                        >
+                            <h4>History</h4>
+                            <ul class="list-group">
+                                <li
+                                    class="list-group-item d-flex justify-content-between align-items-center"
+                                >
+                                    Bids
+                                    <span
+                                        class="badge badge__bids bg-warning rounded-pill"
+                                        >14</span
+                                    >
+                                </li>
+                                <li
+                                    class="list-group-item d-flex justify-content-between align-items-center"
+                                >
+                                    Listings
+                                    <span
+                                        class="badge badge__listings bg-warning rounded-pill"
+                                        >2</span
+                                    >
+                                </li>
+                                <li
+                                    class="list-group-item d-flex justify-content-between align-items-center"
+                                >
+                                    Wins
+                                    <span
+                                        class="badge badge__wins bg-warning rounded-pill"
+                                        >1</span
+                                    >
+                                </li>
+                            </ul>
+                            <button
+                                class="btn btn-outline-light mt-2"
+                                type="button"
+                            >
+                                show more
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <section>
-                <div class="container mt-4">
-                    <div class="border-bottom mb-2 border-warning">
-                        <h3>New Arrivals:</h3>
-                    </div>
-                    <div id="index__main" class="row gy-3 text-black"></div>
-                </div>
-            </section>
         </main>
         <footer>
             <div
@@ -475,6 +542,54 @@
                     </div>
                 </div>
             </div>
+
+            <div
+                class="modal fade"
+                id="avatarModal"
+                tabindex="-1"
+                aria-labelledby="avatarModalLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog bg-dark">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="avatarModalLabel">
+                                Change avatar image
+                            </h1>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <form id="form__changeavatar">
+                                    <div class="input-group mb-3">
+                                        <input
+                                            type="text"
+                                            class="form-control rounded-1"
+                                            placeholder="Avatar Url"
+                                        />
+                                        <div class="input-group-append">
+                                            <button
+                                                class="btn btn-outline-warning ms-1"
+                                                type="button"
+                                                id="bid__btn"
+                                            >
+                                                Change
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- <div class="modal-footer"></div> -->
+                    </div>
+                </div>
+            </div>
+
             <div class="container text-start d-flex align-items-center h-100">
                 <p class="mb-0">2022 &copy; Auction House</p>
             </div>

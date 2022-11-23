@@ -1,33 +1,15 @@
-import { baseUrl, listingsUrlPromo } from './components/urls.mjs';
-const hamburger = document.querySelectorAll('#hamburger__icon');
-const indexMain = document.querySelector('#index__main');
-// const sliderContent = document.querySelectorAll('#slider__content');
+import { baseUrl, listingsUrlAll } from './components/urls.mjs';
 const loader = document.getElementById('loader');
-
-hamburger.forEach((button) => {
-    button.addEventListener('click', () => {
-        const currentState = button.getAttribute('data-state');
-
-        if (!currentState || currentState === 'closed') {
-            button.setAttribute('data-state', 'opened');
-            button.setAttribute('aria-expanded', 'true');
-        } else {
-            button.setAttribute('data-state', 'closed');
-            button.setAttribute('aria-expanded', 'false');
-        }
-    });
-});
-
-export const getOptions = {
+const indexMain = document.querySelector('#index__main');
+const getOptions = {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json',
     },
 };
-
 async function getlistingsAll() {
     try {
-        const response = await fetch(baseUrl + listingsUrlPromo, getOptions);
+        const response = await fetch(baseUrl + listingsUrlAll, getOptions);
         const data = await response.json();
         console.log(data);
         data.forEach(function (ele) {
@@ -39,7 +21,6 @@ async function getlistingsAll() {
     }
 }
 getlistingsAll();
-// console.log(baseUrl + listingsUrlAll);
 
 export function indexCards(ele) {
     indexMain.innerHTML += `
@@ -63,13 +44,3 @@ export function indexCards(ele) {
                             </div>
                         </div>`;
 }
-
-function testBadge() {
-    const badgeWin = document.querySelector('.badge__wins');
-    const badgeLi = document.querySelector('.badge__listings');
-    const badgeBids = document.querySelector('.badge__bids');
-    badgeWin.innerHTML = '25';
-    badgeLi.innerHTML = '400';
-    badgeBids.innerHTML = '2';
-}
-testBadge();
