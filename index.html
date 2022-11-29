@@ -9,25 +9,21 @@
         />
         <meta name="keywords" content="Auction, Sell, Buy, look, for all" />
         <link rel="stylesheet" href="dist/css/styles.css" />
-        <link
-            rel="stylesheet"
-            href="node_modules/bootstrap/dist/css/bootstrap.min.css"
-        />
         <link rel="icon" href="/img/icon-white-gold.png" />
-        <script type="module" src="./src/js/index.js"></script>
+        <script type="module" src="./src/js/main.js"></script>
         <script
             src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             defer
         ></script>
         <title>Auction Wars</title>
     </head>
-    <body class="d-flex flex-column min-vh-100">
+    <body class="d-flex flex-column min-vh-100 bg-mainbg">
         <header class="sticky-top navbar-expand-md mb-4 navbar-dark bg-dark">
             <div class="container custom__xs__container">
                 <div class="row align-items-center mt-1 header__grid__custom">
                     <div class="col header__logo">
                         <a
-                            href="#"
+                            href="index.html"
                             class="navbar-brand mb-0 h1 user-select-none text-uppercase fw-bold"
                         >
                             <img
@@ -60,6 +56,17 @@
                             href="#register__modal"
                         >
                             register
+                        </a>
+                        <a
+                            id="btn__logout"
+                            type="button"
+                            class="btn btn-outline-warning btn-sm ms-1"
+                            data-bs-toggle="modal"
+                            role="button"
+                            href="#"
+                            style="display: none"
+                        >
+                            Logout
                         </a>
                     </div>
                 </div>
@@ -113,7 +120,10 @@
                                 id="navbar__menu"
                             >
                                 <div class="d-flex justify-content-center">
-                                    <form class="input-group-sm">
+                                    <form
+                                        id="form__search"
+                                        class="input-group-sm"
+                                    >
                                         <input
                                             type="search"
                                             id="search"
@@ -140,8 +150,19 @@
                                         </li>
                                         <li class="nav-item">
                                             <a
+                                                href=""
+                                                class="nav-link disabled pe-0"
+                                                id="nav__createli"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#createlistModal"
+                                                >Create listing</a
+                                            >
+                                        </li>
+                                        <li class="nav-item">
+                                            <a
                                                 href="/account.html"
                                                 class="nav-link disabled pe-0"
+                                                id="nav__account"
                                                 >Account</a
                                             >
                                         </li>
@@ -171,69 +192,6 @@
                         alt="Promo banner for the site"
                     />
                 </div>
-                <!-- <div
-                    id="carouselIndicators"
-                    class="carousel slide"
-                    data-bs-ride="carousel"
-                >
-                    <div class="carousel-indicators">
-                        <button
-                            type="button"
-                            data-bs-target="#carouselIndicators"
-                            data-bs-slide-to="0"
-                            class="active"
-                            aria-current="true"
-                            aria-label="Slide 1"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselIndicators"
-                            data-bs-slide-to="1"
-                            aria-label="Slide 2"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselIndicators"
-                            data-bs-slide-to="2"
-                            aria-label="Slide 3"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselIndicators"
-                            data-bs-slide-to="3"
-                            aria-label="Slide 4"
-                        ></button>
-                    </div>
-                    <div
-                        id="slider"
-                        class="carousel-inner"
-                        style="width: 100%; height: 250px !important"
-                    ></div>
-                    <button
-                        class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="prev"
-                    >
-                        <span
-                            class="carousel-control-prev-icon"
-                            aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button
-                        class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next"
-                    >
-                        <span
-                            class="carousel-control-next-icon"
-                            aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div> -->
             </div>
             <section>
                 <div class="container mt-4">
@@ -244,7 +202,7 @@
                 </div>
             </section>
         </main>
-        <footer>
+        <footer class="bg-footerbg mt-3">
             <div
                 class="modal fade"
                 id="login__modal"
@@ -293,10 +251,11 @@
                                         id="login__email"
                                         aria-describedby="email__error"
                                         placeholder="Email"
+                                        name="email"
                                     />
                                     <div
-                                        id="email__error"
-                                        class="form-text"
+                                        id="form__error"
+                                        class="form-text email__error"
                                     ></div>
                                 </div>
                                 <div class="mb-3">
@@ -309,19 +268,21 @@
                                         type="password"
                                         class="form-control"
                                         id="login__password"
+                                        name="password"
                                         aria-describedby="password__error"
                                         placeholder="Password"
                                     />
                                     <div
-                                        id="password__error"
-                                        class="form-text"
+                                        id="form__error"
+                                        class="form-text password__error"
                                     ></div>
                                 </div>
                                 <div class="d-flex justify-content-end">
                                     <button
                                         type="submit"
                                         class="btn btn-outline-light"
-                                        id="btn__login"
+                                        id="login__submit"
+                                        value="Submit"
                                     >
                                         Login
                                     </button>
@@ -362,7 +323,7 @@
                                     height="45"
                                 />
                             </div>
-                            <div>
+                            <div class="msg__ok">
                                 <h5 class="modal-title" id="registerLabel">
                                     Register new user
                                 </h5>
@@ -391,10 +352,11 @@
                                         id="register__name"
                                         aria-describedby="name__error"
                                         placeholder="Name"
+                                        name="name"
                                     />
                                     <div
-                                        id="name__error"
-                                        class="form-text"
+                                        id="form__error"
+                                        class="form-text name__error"
                                     ></div>
                                 </div>
                                 <div class="mb-3">
@@ -409,10 +371,11 @@
                                         id="register__email"
                                         aria-describedby="email__error"
                                         placeholder="Email"
+                                        name="email"
                                     />
                                     <div
-                                        id="email__error"
-                                        class="form-text"
+                                        id="form__error"
+                                        class="form-text reg_email__error"
                                     ></div>
                                 </div>
                                 <div class="mb-3">
@@ -427,10 +390,11 @@
                                         id="register__password"
                                         aria-describedby="password__error"
                                         placeholder="Password"
+                                        name="password"
                                     />
                                     <div
-                                        id="password__error"
-                                        class="form-text"
+                                        id="form__error"
+                                        class="form-text reg__password__error"
                                     ></div>
                                 </div>
                                 <div class="mb-3">
@@ -445,6 +409,7 @@
                                         id="register__avatar"
                                         aria-describedby="avatar__error"
                                         placeholder="Avatar Url"
+                                        name="avatar"
                                     />
                                     <div
                                         id="avatar__error"
@@ -470,6 +435,97 @@
                                 data-bs-dismiss="modal"
                             >
                                 Back to login
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="modal fade"
+                id="createlistModal"
+                tabindex="-1"
+                aria-labelledby="createlistLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="createlistLabel">
+                                Create Listing
+                            </h1>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="title">Title:</label>
+                                    <input
+                                        id="title"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Title"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description"
+                                        >Description:</label
+                                    >
+                                    <textarea
+                                        type="textarea"
+                                        name="description"
+                                        id="description"
+                                        class="form-control"
+                                    ></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tags">Tags:</label>
+                                    <input
+                                        type="text"
+                                        name="tags"
+                                        id="tags"
+                                        class="form-control"
+                                        placeholder="Tags"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tags">Media:</label>
+                                    <input
+                                        type="text"
+                                        name="media"
+                                        id="media"
+                                        class="form-control"
+                                        placeholder="https://url.com/image.jpg"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="endsAt">Ends At:</label>
+                                    <input
+                                        type="text"
+                                        name="endsAt"
+                                        id="endsAt"
+                                        class="form-control"
+                                    />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-outline-light"
+                                data-bs-dismiss="modal"
+                            >
+                                Close
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-outline-warning"
+                            >
+                                Create
                             </button>
                         </div>
                     </div>

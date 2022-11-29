@@ -1,3 +1,4 @@
+//kan fjernes
 @function getColour($colour) {
     @return map-get($colors, $colour);
 }
