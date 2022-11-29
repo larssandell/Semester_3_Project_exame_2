@@ -14,7 +14,6 @@
             href="node_modules/bootstrap/dist/css/bootstrap.min.css"
         />
         <link rel="icon" href="/img/icon-white-gold.png" />
-        <script type="module" src="./src/js/index.js"></script>
         <script type="module" src="./src/js/auctions.js"></script>
         <script
             src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
@@ -22,13 +21,13 @@
         ></script>
         <title>Auction Wars | Auctions</title>
     </head>
-    <body class="d-flex flex-column min-vh-100">
+    <body class="d-flex flex-column min-vh-100 bg-mainbg">
         <header class="sticky-top navbar-expand-md navbar-dark mb-4 bg-dark">
             <div class="container custom__xs__container">
                 <div class="row align-items-center mt-1 header__grid__custom">
                     <div class="col header__logo">
                         <a
-                            href="#"
+                            href="index.html"
                             class="navbar-brand mb-0 h1 user-select-none text-uppercase fw-bold"
                         >
                             <img
@@ -64,7 +63,7 @@
                         <a
                             id="btn__logout"
                             type="button"
-                            class="btn btn-outline-warning btn-sm ms-1 d-none"
+                            class="btn btn-outline-warning btn-sm ms-1"
                             data-bs-toggle="modal"
                             role="button"
                             href="#"
@@ -123,7 +122,10 @@
                                 id="navbar__menu"
                             >
                                 <div class="d-flex justify-content-center">
-                                    <form class="input-group-sm">
+                                    <form
+                                        id="form__search"
+                                        class="input-group-sm"
+                                    >
                                         <input
                                             type="search"
                                             id="search"
@@ -150,8 +152,19 @@
                                         </li>
                                         <li class="nav-item">
                                             <a
+                                                href=""
+                                                class="nav-link disabled pe-0"
+                                                id="nav__createli"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#createlistModal"
+                                                >Create listing</a
+                                            >
+                                        </li>
+                                        <li class="nav-item">
+                                            <a
                                                 href="/account.html"
                                                 class="nav-link disabled pe-0"
+                                                id="nav__account"
                                                 >Account</a
                                             >
                                         </li>
@@ -212,7 +225,7 @@
                 </div>
             </section>
         </main>
-        <footer>
+        <footer class="bg-footerbg mt-3">
             <div
                 class="modal fade"
                 id="login__modal"
@@ -438,6 +451,97 @@
                                 data-bs-dismiss="modal"
                             >
                                 Back to login
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="modal fade"
+                id="createlistModal"
+                tabindex="-1"
+                aria-labelledby="createlistLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="createlistLabel">
+                                Create Listing
+                            </h1>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="title">Title:</label>
+                                    <input
+                                        id="title"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Title"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description"
+                                        >Description:</label
+                                    >
+                                    <textarea
+                                        type="textarea"
+                                        name="description"
+                                        id="description"
+                                        class="form-control"
+                                    ></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tags">Tags:</label>
+                                    <input
+                                        type="text"
+                                        name="tags"
+                                        id="tags"
+                                        class="form-control"
+                                        placeholder="Tags"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tags">Media:</label>
+                                    <input
+                                        type="text"
+                                        name="media"
+                                        id="media"
+                                        class="form-control"
+                                        placeholder="https://url.com/image.jpg"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="endsAt">Ends At:</label>
+                                    <input
+                                        type="text"
+                                        name="endsAt"
+                                        id="endsAt"
+                                        class="form-control"
+                                    />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-outline-light"
+                                data-bs-dismiss="modal"
+                            >
+                                Close
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-outline-warning"
+                            >
+                                Create
                             </button>
                         </div>
                     </div>

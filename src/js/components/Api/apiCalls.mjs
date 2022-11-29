@@ -1,14 +1,14 @@
 export async function registerUser(url, options = {}) {
     try {
         const response = await fetch(url, options);
-        const json = await response.json();
-        return json;
+        const data = await response.json();
+        return data;
     } catch (error) {
         console.log(error);
     }
 }
 
-export async function loginUser(url, options = {}) {
+export async function userLogin(url, options = {}) {
     try {
         const response = await fetch(url, options);
         const data = await response.json();
@@ -22,7 +22,7 @@ export async function loginUser(url, options = {}) {
     }
 }
 
-export async function ApicallWithToken(url, options = {}) {
+export async function getListings(url, options = {}) {
     try {
         const response = await fetch(url, options);
         const data = await response.json();

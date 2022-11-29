@@ -14,22 +14,20 @@
             href="node_modules/bootstrap/dist/css/bootstrap.min.css"
         />
         <link rel="icon" href="/img/icon-white-gold.png" />
-        <!-- <script type="module" src="./src/js/index.js"></script>
-        <script type="module" src="./src/js/auctions.js"></script> -->
-        <script type="module" src="./src/js/components/product.js"></script>
+        <script type="module" src="./src/js/product.js"></script>
         <script
             src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             defer
         ></script>
         <title>Auction Wars | title name</title>
     </head>
-    <body class="d-flex flex-column min-vh-100">
+    <body class="d-flex flex-column min-vh-100 bg-mainbg">
         <header class="sticky-top navbar-expand-md navbar-dark mb-4 bg-dark">
             <div class="container custom__xs__container">
                 <div class="row align-items-center mt-1 header__grid__custom">
                     <div class="col header__logo">
                         <a
-                            href="#"
+                            href="index.html"
                             class="navbar-brand mb-0 h1 user-select-none text-uppercase fw-bold"
                         >
                             <img
@@ -124,7 +122,10 @@
                                 id="navbar__menu"
                             >
                                 <div class="d-flex justify-content-center">
-                                    <form class="input-group-sm">
+                                    <form
+                                        id="form__search"
+                                        class="input-group-sm"
+                                    >
                                         <input
                                             type="search"
                                             id="search"
@@ -151,8 +152,19 @@
                                         </li>
                                         <li class="nav-item">
                                             <a
+                                                href=""
+                                                class="nav-link disabled pe-0"
+                                                id="nav__createli"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#createlistModal"
+                                                >Create listing</a
+                                            >
+                                        </li>
+                                        <li class="nav-item">
+                                            <a
                                                 href="/account.html"
                                                 class="nav-link disabled pe-0"
+                                                id="nav__account"
                                                 >Account</a
                                             >
                                         </li>
@@ -165,51 +177,40 @@
             </div>
         </header>
         <main class="mb-auto">
-            <!-- <div
-                id="loader"
-                class="d-flex align-items-center justify-content-center"
-            >
-                <div class="spinner-grow bg-warning" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
             <section>
                 <div class="container mt-4">
-                    <div class="border-bottom mb-2 border-warning">
-                        <h3>Auctions:</h3>
-                    </div>
-                    <div id="index__main" class="row gy-3 text-black"></div>
+                    <div class="border-bottom mb-2 border-warning"></div>
+                    <a
+                        href="/auctions.html"
+                        type="button"
+                        class="btn btn-outline-light"
+                        >Back</a
+                    >
                 </div>
-            </section> -->
+            </section>
             <div class="container mt-5 mb-5">
+                <div
+                    id="loader"
+                    class="d-flex align-items-center justify-content-center"
+                >
+                    <div class="spinner-grow bg-warning" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-10">
                         <div class="card text-white bg-dark">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="images p-3">
-                                        <div class="text-center p-4">
-                                            <img
-                                                id="main-image"
-                                                src="/img/no-image.png"
-                                                width="250"
-                                                class="rounded-1 img-fluid"
-                                            />
-                                        </div>
-                                        <div class="thumbnail text-center">
-                                            <img
-                                                onclick="change_image(this)"
-                                                src="/img/no-image.png"
-                                                width="70"
-                                                class="rounded-1"
-                                            />
-                                            <img
-                                                onclick="change_image(this)"
-                                                src="/img/no-image.png"
-                                                width="70"
-                                                class="rounded-1"
-                                            />
-                                        </div>
+                                        <div
+                                            id="main__image"
+                                            class="text-center p-4 main-gallery"
+                                        ></div>
+                                        <div
+                                            id="thumb__image"
+                                            class="thumbnail text-center"
+                                        ></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -219,50 +220,53 @@
                                         >
                                             <div
                                                 class="d-flex align-items-center"
-                                            >
-                                                <i
-                                                    class="fa fa-long-arrow-left"
-                                                ></i>
-                                                <a
-                                                    href="/auctions.html"
-                                                    class=""
-                                                    >Back</a
-                                                >
-                                            </div>
+                                            ></div>
                                         </div>
                                         <div class="mt-4 mb-3">
-                                            <span class="text-uppercase brand"
-                                                >Title</span
-                                            >
+                                            <span
+                                                id="product__title"
+                                                class="brand"
+                                            ></span>
                                             <div
                                                 class="price d-flex flex-row align-items-center"
                                             ></div>
                                         </div>
-                                        <p class="about">description</p>
+                                        <p id="product__desc" class="about"></p>
                                         <div class="sizes mt-5">
-                                            <p class="">Current bid: 5000</p>
-
-                                            <form id="bid__form " for="bidform">
+                                            <p class="">
+                                                Current bid:
+                                                <span id="Curr__bid"></span>
+                                            </p>
+                                            <form id="form__bid">
                                                 <div class="input-group mb-3">
+                                                    <label
+                                                        for="bid__input"
+                                                    ></label>
                                                     <input
+                                                        id="bid__input"
                                                         type="number"
                                                         class="form-control rounded-1"
                                                         placeholder="Bid amount"
+                                                        name="amount"
                                                     />
                                                     <div
                                                         class="input-group-append"
                                                     >
                                                         <button
-                                                            class="btn btn-success ms-1"
-                                                            type="button"
-                                                            id="bid__btn"
+                                                            class="btn btn-outline-warning ms-1"
+                                                            id="bid__submit"
+                                                            type="submit"
+                                                            value="submit"
                                                         >
                                                             Bid
                                                         </button>
                                                     </div>
                                                 </div>
                                             </form>
-                                            <p>Ends at: 12.12.12</p>
+                                            <p>
+                                                Ends at:
+                                                <span id="product__ends"></span>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -272,7 +276,7 @@
                 </div>
             </div>
         </main>
-        <footer>
+        <footer class="bg-footerbg mt-3">
             <div
                 class="modal fade"
                 id="login__modal"
@@ -498,6 +502,97 @@
                                 data-bs-dismiss="modal"
                             >
                                 Back to login
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="modal fade"
+                id="createlistModal"
+                tabindex="-1"
+                aria-labelledby="createlistLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="createlistLabel">
+                                Create Listing
+                            </h1>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="title">Title:</label>
+                                    <input
+                                        id="title"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Title"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description"
+                                        >Description:</label
+                                    >
+                                    <textarea
+                                        type="textarea"
+                                        name="description"
+                                        id="description"
+                                        class="form-control"
+                                    ></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tags">Tags:</label>
+                                    <input
+                                        type="text"
+                                        name="tags"
+                                        id="tags"
+                                        class="form-control"
+                                        placeholder="Tags"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tags">Media:</label>
+                                    <input
+                                        type="text"
+                                        name="media"
+                                        id="media"
+                                        class="form-control"
+                                        placeholder="https://url.com/image.jpg"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="endsAt">Ends At:</label>
+                                    <input
+                                        type="text"
+                                        name="endsAt"
+                                        id="endsAt"
+                                        class="form-control"
+                                    />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-outline-light"
+                                data-bs-dismiss="modal"
+                            >
+                                Close
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-outline-warning"
+                            >
+                                Create
                             </button>
                         </div>
                     </div>
