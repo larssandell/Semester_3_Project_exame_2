@@ -11,9 +11,10 @@ export function changeImageThumb() {
     });
 }
 
+// trenger ikke timeout lenger
 setTimeout(() => {
     changeImageThumb();
     // console.log(currentImg);
     // console.log(thumbImg);
-    console.log('ferdig');
+    // console.log('ferdig');
 }, '1');

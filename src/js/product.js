@@ -19,8 +19,8 @@ async function getProduct() {
     try {
         const response = await fetch(productSpecificAll, getOption);
         const data = await response.json();
-        console.log(response);
-        console.log(data);
+        // console.log(response);
+        // console.log(data);
         document.title = `Auction Wars | ${data.title}`;
         // console.log(data.bids);
         mainImage.innerHTML = `<img src="${data.media[0]}"
@@ -32,7 +32,7 @@ async function getProduct() {
                             />`;
 
         for (let i = 0; i < data.media.length; i++) {
-            console.log(data.media[i]);
+            // console.log(data.media[i]);
             thumbImgs.innerHTML += `<img
                                             
                                             onerror="this.src = './img/no-image.png';"

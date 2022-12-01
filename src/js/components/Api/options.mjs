@@ -2,10 +2,11 @@ import { token } from '../document.mjs';
 
 export const headersInfo = {
     'content-Type': 'application/json',
-    Accept: 'application/json',
+    Authorization: `Bearer ${token}`,
 };
 export const headersInfo2 = {
-    'content-Type': 'application/json',
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${token}`,
 };
 
 export const postOption = {
@@ -18,6 +19,10 @@ export const postOptionAuth = {
     headers: headersInfo,
 };
 export const getOption = {
+    method: 'GET',
+    headers: headersInfo,
+};
+export const getOptionAuth = {
     method: 'GET',
     headers: headersInfo,
 };
