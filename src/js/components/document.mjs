@@ -43,10 +43,10 @@ export const passwordInput = document.getElementById('login__password');
 
 // Local Storage
 export const token = localStorage.getItem('accessToken');
-export const userName = localStorage.getItem('accessToken');
+export const userName = localStorage.getItem('userName');
 
 // Account page
-export const accAvatar = document.getElementById('acc__avatar');
+export const accAvatar = document.getElementById('account__avatar');
 export const accName = document.getElementById('acc__username');
 export const accMail = document.getElementById('acc__usermail');
 export const accCredit = document.getElementById('acc__usercredit');
@@ -66,3 +66,5 @@ export const changeImage = document.getElementById('change__image');
 export const thumbImg = document.getElementById('thumb__image');
 //               Form
 export const bidForm = document.getElementById('form__bid');
+
+// account page

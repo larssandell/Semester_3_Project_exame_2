@@ -14,7 +14,7 @@
             href="node_modules/bootstrap/dist/css/bootstrap.min.css"
         />
         <link rel="icon" href="/img/icon-white-gold.png" />
-        <script type="module" src="./src/js/profile.js"></script>
+        <script type="module" src="./src/js/account.js"></script>
         <script
             src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             defer
@@ -193,12 +193,13 @@
                                 <section
                                     class="bg-dark container text-white rounded-3 mb-2 mb-md-1"
                                 >
-                                    <img
-                                        src="/img/noun-person-5178759.png"
-                                        class="rounded-circle mt-1 me-3 bg-light acc__avatar"
-                                        alt="avatar"
-                                        id="account__avatar"
-                                    />
+                                    <div id="account__avatar">
+                                        <img
+                                            src="/img/noun-person-5178759.png"
+                                            class="rounded-circle mt-1 me-3 bg-light acc__avatar"
+                                            alt="User profile"
+                                        />
+                                    </div>
                                     <div class="col my-1">
                                         <h4
                                             class="text-center text-md-start mb-2 mt-2"
@@ -217,9 +218,7 @@
                                                         <p
                                                             id="acc__username"
                                                             class="text-muted mb-0"
-                                                        >
-                                                            Johnatan Smith
-                                                        </p>
+                                                        ></p>
                                                     </div>
                                                 </div>
                                                 <hr />

@@ -1,4 +1,6 @@
 import { id } from './qs.mjs';
+import { userName } from './document.mjs';
+
 export const baseUrl = 'https://api.noroff.dev/api/v1/';
 export const sellerBids = '?_seller=true&_bids=true';
 export const bidUrl = 'auction/listings/' + id;
@@ -8,11 +10,14 @@ export const listingsUrl = `${baseUrl}auction/listings`;
 export const listingsUrlPromo = `${baseUrl}auction/listings?sort=created&limit=4&_seller=true&_bids=true`;
 export const listingsUrTwelv = `${baseUrl}auction/listings?sort=created&limit=12&_seller=true&_bids=true`;
 export const listingsUrlAll = `${baseUrl}auction/listings?_seller=true&_bids=true`;
-export const profilUrl = `${baseUrl}auction/profiles/${name}`;
+export const profilUrl = `${baseUrl}auction/profiles/${userName}`;
 export const allProfilesUrl = `${baseUrl}auction/profiles`;
 export const productUrl = 'auction/listings/' + id;
 export const productSpecific = `${baseUrl}${productUrl}`;
 export const placeBidUrl = `${baseUrl}${bidUrl}/bids`;
+// export const accountUrl = `${baseUrl}auction/profiles/` + userName;
+// export const accUrlId = `${baseUrl}${accountUrl}/?_listings=true`;
+export const accUrlId = `${baseUrl}auction/profiles/${userName}?_listings=true`;
 
 export const productSpecificAll = `${baseUrl}${productUrl}${sellerBids}`;
 // GET /api/v1/auction/listings?sort=created&sortOrder=desc

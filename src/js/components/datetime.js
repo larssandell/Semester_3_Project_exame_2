@@ -2,7 +2,7 @@
 
 export function utcDate() {
     let dtFormat = new Intl.DateTimeFormat('default');
-    let date = new date();
-    console.log(dtFormat);
+    let date = new date(dtFormat);
+    console.log(date);
     // cardsDate.innerHTML = dtFormat.format(date);
 }
