@@ -148,21 +148,19 @@
                                                 >Auctions</a
                                             >
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item" id="nav__createli">
                                             <a
                                                 href=""
-                                                class="nav-link disabled pe-0"
-                                                id="nav__createli"
+                                                class="nav-link pe-0"
                                                 data-bs-toggle="modal"
                                                 data-bs-target="#createlistModal"
                                                 >Create listing</a
                                             >
                                         </li>
-                                        <li class="nav-item">
+                                        <li id="nav__account" class="nav-item">
                                             <a
                                                 href="/account.html"
-                                                class="nav-link disabled pe-0"
-                                                id="nav__account"
+                                                class="nav-link pe-0"
                                                 >Account</a
                                             >
                                         </li>
@@ -175,6 +173,13 @@
             </div>
         </header>
         <main class="mb-auto">
+            <div id="msg__wrapper">
+                <div
+                    id="alert__msg"
+                    class="alert err__msg alert-success"
+                    role="alert"
+                ></div>
+            </div>
             <div
                 id="loader"
                 class="d-flex align-items-center justify-content-center"
@@ -203,6 +208,7 @@
             </section>
         </main>
         <footer class="bg-footerbg mt-3">
+            <!-- Modal for login -->
             <div
                 class="modal fade"
                 id="login__modal"
@@ -302,6 +308,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal for Register -->
             <div
                 class="modal fade"
                 id="register__modal"
@@ -440,6 +447,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal for createlist -->
             <div
                 class="modal fade"
                 id="createlistModal"
@@ -461,12 +469,13 @@
                             ></button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form id="create__entry">
                                 <div class="mb-3">
-                                    <label for="title">Title:</label>
+                                    <label for="create__title">Title:</label>
                                     <input
-                                        id="title"
+                                        id="create__title"
                                         type="text"
+                                        name="title"
                                         class="form-control"
                                         placeholder="Title"
                                     />
@@ -486,30 +495,60 @@
                                     <label for="tags">Tags:</label>
                                     <input
                                         type="text"
-                                        name="tags"
                                         id="tags"
                                         class="form-control"
                                         placeholder="Tags"
                                     />
                                 </div>
                                 <div class="mb-3">
-                                    <label for="tags">Media:</label>
+                                    <label for="media">Media:</label>
                                     <input
                                         type="text"
-                                        name="media"
-                                        id="media"
+                                        id="media__one"
+                                        class="form-control"
+                                        placeholder="https://url.com/image.jpg"
+                                    />
+                                    <div class="my-2">
+                                        <input
+                                            type="text"
+                                            id="media__two"
+                                            class="form-control"
+                                            placeholder="https://url.com/image.jpg"
+                                        />
+                                    </div>
+                                    <input
+                                        type="text"
+                                        id="media__three"
                                         class="form-control"
                                         placeholder="https://url.com/image.jpg"
                                     />
                                 </div>
                                 <div class="mb-3">
-                                    <label for="endsAt">Ends At:</label>
+                                    <!-- <label for="endsAt">Ends At:</label>
                                     <input
-                                        type="text"
+                                        type="datetime"
                                         name="endsAt"
                                         id="endsAt"
                                         class="form-control"
+                                    /> -->
+                                    <label for="endsAt">Ends at:</label>
+                                    <input
+                                        id="endsAt"
+                                        type="datetime-local"
+                                        class="form-control"
                                     />
+                                </div>
+                                <div
+                                    id="create__error"
+                                    class="text-danger"
+                                ></div>
+                                <div class="d-flex justify-content-end">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-outline-warning"
+                                    >
+                                        Create
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -520,12 +559,6 @@
                                 data-bs-dismiss="modal"
                             >
                                 Close
-                            </button>
-                            <button
-                                type="button"
-                                class="btn btn-outline-warning"
-                            >
-                                Create
                             </button>
                         </div>
                     </div>

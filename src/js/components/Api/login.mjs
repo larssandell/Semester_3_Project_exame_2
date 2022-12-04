@@ -4,16 +4,17 @@ import {
     emailError,
     passwordError,
     passwordInput,
-    accountLink,
 } from '../document.mjs';
 import { headersInfo } from './options.mjs';
-import { userLogin } from './apiCalls.mjs';
+// import { userLogin } from './apiCalls.mjs';
 import { loginUrl } from '../urls.mjs';
 import { loggedIn } from '../templates/loggedin.mjs';
 import { emailVali } from '../variables.mjs';
-// import { btnLogin } from '../document.mjs';
+// import { localStorage } from '../helpers/localstorage.mjs';
+import { okLogin, alertLogin } from '../error.mjs';
+import { pageHelpers } from '../helpers/helpers.mjs';
 // console.log(formLogin);
-
+pageHelpers();
 export function funcUserLogin() {
     formLogin.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -24,41 +25,52 @@ export function funcUserLogin() {
         const password = formData.get('password');
         // console.log(email);
         // console.log(password);
-        if (emailVali(email) === true) {
-            console.log('OK');
+        if (emailVali(email)) {
             emailInput.classList.remove('bg-err-red');
             emailInput.classList.add('bg-ok-green');
-            emailError.innerHTML = ``;
+            emailError.textContent = '';
         } else {
             emailInput.classList.remove('bg-ok-green');
             emailInput.classList.add('bg-err-red');
-            emailError.innerHTML = `<p>Domain must be stud.noroff.no</p>`;
+            emailError.textContent = 'Domain must be stud.noroff.no';
         }
         if (password.length < 8) {
-            passwordError.innerHTML = `<p>Must be at least 8 characters</p>`;
+            passwordError.textContent = 'Must be at least 8 characters';
             passwordInput.classList.add('bg-err-red');
         } else {
             passwordInput.classList.remove('bg-err-red');
             passwordInput.classList.add('bg-ok-green');
-            passwordError.innerHTML = '';
+            passwordError.textContent = '';
         }
+
         try {
-            const response = await userLogin(loginUrl, {
+            const response = await fetch(loginUrl, {
                 method: 'POST',
                 headers: headersInfo,
                 body: JSON.stringify(formDataSeri),
             });
-            // console.log(response);
-            if (response.statusCode === 401) {
-                console.log('if');
-            } else {
-                console.log('else');
+            const data = await response.json();
+            const userToken = data.accessToken;
+            const userName = data.name;
+            const userCredits = data.credits;
+            localStorage.setItem('userName', userName);
+            localStorage.setItem('accessToken', userToken);
+            localStorage.setItem('credits', userCredits);
+            console.log(data);
+            // console.log(response.status);
+            console.log(response);
+            const auth = response.ok;
+            // må ha med 400 og 401
+            if (!auth === false) {
                 loggedIn();
-                accountLink.classList.remove('disabled');
-                // loginSucc.hide();
-                // btnLogin.style.display = 'none';
-                // btnLogout.style.display = 'block';
-                // btnRegister.style.display = 'none';
+                okLogin();
+                setTimeout(() => {
+                    location.reload();
+                }, 3000);
+                console.log('inne', auth);
+            } else {
+                console.log('feil', auth);
+                alertLogin();
             }
         } catch (err) {
             console.log(err);
