@@ -1,12 +1,12 @@
 import { listingsUrTwelv } from './components/urls.mjs';
 import { getOption } from './components/Api/options.mjs';
-import { hamburgerAnimation } from './components/hamburger.mjs';
-import { loggedIn } from './components/templates/loggedin.mjs';
+import { pageHelpers } from './components/helpers/helpers.mjs';
 import { indexCards } from './components/templates.mjs';
 import { loader } from './components/document.mjs';
+import { hamburgerAnimation } from './components/hamburger.mjs';
 
 hamburgerAnimation();
-loggedIn();
+pageHelpers();
 async function getlistingsAll() {
     try {
         const response = await fetch(listingsUrTwelv, getOption);

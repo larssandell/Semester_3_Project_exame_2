@@ -47,6 +47,7 @@
                             data-bs-toggle="modal"
                             role="button"
                             href="#login__modal"
+                            type="button"
                         >
                             Login
                         </a>
@@ -67,6 +68,7 @@
                             data-bs-toggle="modal"
                             role="button"
                             href="#"
+                            style="display: none"
                         >
                             Logout
                         </a>
@@ -150,21 +152,19 @@
                                                 >Auctions</a
                                             >
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item" id="nav__createli">
                                             <a
                                                 href=""
-                                                class="nav-link disabled pe-0"
-                                                id="nav__createli"
+                                                class="nav-link pe-0"
                                                 data-bs-toggle="modal"
                                                 data-bs-target="#createlistModal"
                                                 >Create listing</a
                                             >
                                         </li>
-                                        <li class="nav-item">
+                                        <li id="nav__account" class="nav-item">
                                             <a
                                                 href="/account.html"
-                                                class="nav-link active pe-0"
-                                                id="nav__account"
+                                                class="nav-link pe-0 active"
                                                 >Account</a
                                             >
                                         </li>
@@ -177,6 +177,13 @@
             </div>
         </header>
         <main class="mb-auto">
+            <div id="msg__wrapper">
+                <div
+                    id="alert__msg"
+                    class="alert err__msg alert-success"
+                    role="alert"
+                ></div>
+            </div>
             <div
                 id="loader"
                 class="d-flex align-items-center justify-content-center"
@@ -195,7 +202,7 @@
                                 >
                                     <div id="account__avatar">
                                         <img
-                                            src="/img/noun-person-5178759.png"
+                                            src=""
                                             class="rounded-circle mt-1 me-3 bg-light acc__avatar"
                                             alt="User profile"
                                         />
@@ -278,7 +285,7 @@
                                     />
                                     <h4 class="mt-4">
                                         Your credits:
-                                        <span id="acc__usercredit">5000</span>
+                                        <span id="acc__usercredit"></span>
                                     </h4>
                                 </div>
                             </div>
@@ -296,7 +303,7 @@
                                     Bids
                                     <span
                                         class="badge badge__bids bg-warning rounded-pill"
-                                        >14</span
+                                        >0</span
                                     >
                                 </li>
                                 <li
@@ -305,7 +312,7 @@
                                     Listings
                                     <span
                                         class="badge badge__listings bg-warning rounded-pill"
-                                        >2</span
+                                        >0</span
                                     >
                                 </li>
                                 <li
@@ -314,13 +321,15 @@
                                     Wins
                                     <span
                                         class="badge badge__wins bg-warning rounded-pill"
-                                        >1</span
+                                        >0</span
                                     >
                                 </li>
                             </ul>
                             <button
                                 class="btn btn-outline-light mt-2"
                                 type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#showMoreModal"
                             >
                                 show more
                             </button>
@@ -330,6 +339,7 @@
             </div>
         </main>
         <footer class="bg-footerbg mt-3">
+            <!-- Modal for login -->
             <div
                 class="modal fade"
                 id="login__modal"
@@ -378,10 +388,11 @@
                                         id="login__email"
                                         aria-describedby="email__error"
                                         placeholder="Email"
+                                        name="email"
                                     />
                                     <div
-                                        id="email__error"
-                                        class="form-text"
+                                        id="form__error"
+                                        class="form-text email__error"
                                     ></div>
                                 </div>
                                 <div class="mb-3">
@@ -394,19 +405,21 @@
                                         type="password"
                                         class="form-control"
                                         id="login__password"
+                                        name="password"
                                         aria-describedby="password__error"
                                         placeholder="Password"
                                     />
                                     <div
-                                        id="password__error"
-                                        class="form-text"
+                                        id="form__error"
+                                        class="form-text password__error"
                                     ></div>
                                 </div>
                                 <div class="d-flex justify-content-end">
                                     <button
                                         type="submit"
                                         class="btn btn-outline-light"
-                                        id="btn__login"
+                                        id="login__submit"
+                                        value="Submit"
                                     >
                                         Login
                                     </button>
@@ -426,6 +439,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal for Register -->
             <div
                 class="modal fade"
                 id="register__modal"
@@ -447,7 +461,7 @@
                                     height="45"
                                 />
                             </div>
-                            <div>
+                            <div class="msg__ok">
                                 <h5 class="modal-title" id="registerLabel">
                                     Register new user
                                 </h5>
@@ -476,10 +490,11 @@
                                         id="register__name"
                                         aria-describedby="name__error"
                                         placeholder="Name"
+                                        name="name"
                                     />
                                     <div
-                                        id="name__error"
-                                        class="form-text"
+                                        id="form__error"
+                                        class="form-text name__error"
                                     ></div>
                                 </div>
                                 <div class="mb-3">
@@ -494,10 +509,11 @@
                                         id="register__email"
                                         aria-describedby="email__error"
                                         placeholder="Email"
+                                        name="email"
                                     />
                                     <div
-                                        id="email__error"
-                                        class="form-text"
+                                        id="form__error"
+                                        class="form-text reg_email__error"
                                     ></div>
                                 </div>
                                 <div class="mb-3">
@@ -512,10 +528,11 @@
                                         id="register__password"
                                         aria-describedby="password__error"
                                         placeholder="Password"
+                                        name="password"
                                     />
                                     <div
-                                        id="password__error"
-                                        class="form-text"
+                                        id="form__error"
+                                        class="form-text reg__password__error"
                                     ></div>
                                 </div>
                                 <div class="mb-3">
@@ -530,6 +547,7 @@
                                         id="register__avatar"
                                         aria-describedby="avatar__error"
                                         placeholder="Avatar Url"
+                                        name="avatar"
                                     />
                                     <div
                                         id="avatar__error"
@@ -560,53 +578,7 @@
                     </div>
                 </div>
             </div>
-
-            <div
-                class="modal fade"
-                id="avatarModal"
-                tabindex="-1"
-                aria-labelledby="avatarModalLabel"
-                aria-hidden="true"
-            >
-                <div class="modal-dialog bg-dark">
-                    <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="avatarModalLabel">
-                                Change avatar image
-                            </h1>
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                            ></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <form id="form__changeavatar">
-                                    <div class="input-group mb-3">
-                                        <input
-                                            type="text"
-                                            class="form-control rounded-1"
-                                            placeholder="Avatar Url"
-                                        />
-                                        <div class="input-group-append">
-                                            <button
-                                                class="btn btn-outline-warning ms-1"
-                                                type="button"
-                                                id="bid__btn"
-                                            >
-                                                Change
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- <div class="modal-footer"></div> -->
-                    </div>
-                </div>
-            </div>
+            <!-- Modal for createlist -->
             <div
                 class="modal fade"
                 id="createlistModal"
@@ -698,7 +670,140 @@
                     </div>
                 </div>
             </div>
+            <!-- show more modal -->
+            <div
+                class="modal fade"
+                id="showMoreModal"
+                tabindex="-1"
+                aria-labelledby="showMoreModalLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h1
+                                class="modal-title fs-5"
+                                id="showMoreModalLabel"
+                            >
+                                History
+                            </h1>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <p>Bids</p>
+                                <div class="list-group">
+                                    <a
+                                        href="#"
+                                        class="list-group-item list-group-item-action"
+                                        >A second link item</a
+                                    >
+                                    <a
+                                        href="#"
+                                        class="list-group-item list-group-item-action"
+                                        >A third link item</a
+                                    >
+                                    <a
+                                        href="#"
+                                        class="list-group-item list-group-item-action"
+                                        >A fourth link item</a
+                                    >
+                                </div>
+                            </div>
+                            <div>
+                                <p>Wins</p>
+                                <div class="list-group">
+                                    <a
+                                        href="#"
+                                        class="list-group-item list-group-item-action"
+                                        >A second link item</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-outline-warning"
+                                data-bs-dismiss="modal"
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Edit media modal -->
+            <div
+                class="modal fade"
+                id="avatarModal"
+                tabindex="-1"
+                aria-labelledby="editModalLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="editModalLabel">
+                                Change avatar
+                            </h1>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="form__avatar">
+                                <div class="mb-3">
+                                    <label
+                                        for="avatar__media"
+                                        class="form-label"
+                                        >Avatar</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="avatar__media"
+                                        placeholder="Place URL here"
+                                        name="avatar"
+                                    />
+                                    <div
+                                        id="form__error"
+                                        class="form-text avatar__error"
+                                    ></div>
+                                </div>
 
+                                <div class="d-flex justify-content-end">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-outline-warning"
+                                        id="login__submit"
+                                        value="Submit"
+                                    >
+                                        Save
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-outline-light"
+                                data-bs-dismiss="modal"
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="container text-start d-flex align-items-center h-100">
                 <p class="mb-0">2022 &copy; Auction House</p>
             </div>

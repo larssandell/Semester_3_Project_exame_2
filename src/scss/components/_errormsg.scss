@@ -5,3 +5,45 @@
 .reg__ok {
     color: #325c3c;
 }
+
+#msg__wrapper {
+    position: relative;
+    height: 50px;
+    color: #fff;
+    font-size: 0.8rem;
+    .err__msg {
+        position: fixed;
+        right: -100%;
+        top: 120px;
+        width: 40%;
+        opacity: 1;
+        flex-direction: column;
+        transition: 1.2s;
+        animation: fade-in-out 6s forwards;
+        text-align: start;
+
+        @media only screen and (min-width: 1000px) {
+            .err__msg {
+                width: 25%;
+            }
+        }
+        &.showmsg {
+            right: 0;
+        }
+        @keyframes fade-in-out {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+// #alert__msg .showmsg {
+//     right: 0;
+// }

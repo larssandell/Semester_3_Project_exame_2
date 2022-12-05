@@ -15,9 +15,8 @@ export const allProfilesUrl = `${baseUrl}auction/profiles`;
 export const productUrl = 'auction/listings/' + id;
 export const productSpecific = `${baseUrl}${productUrl}`;
 export const placeBidUrl = `${baseUrl}${bidUrl}/bids`;
-// export const accountUrl = `${baseUrl}auction/profiles/` + userName;
-// export const accUrlId = `${baseUrl}${accountUrl}/?_listings=true`;
 export const accUrlId = `${baseUrl}auction/profiles/${userName}?_listings=true`;
+export const profileAvatar = `${baseUrl}auction/profiles/${userName}/media`;
 
 export const productSpecificAll = `${baseUrl}${productUrl}${sellerBids}`;
 // GET /api/v1/auction/listings?sort=created&sortOrder=desc

@@ -46,6 +46,12 @@ header {
     .nav-link:focus {
         color: getColour(main-gold);
     }
+    #nav__account {
+        display: none;
+    }
+    #nav__createli {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 768px) {

@@ -15,7 +15,6 @@ export const loginInput = document.getElementById('login__email');
 export const btnLogin = document.getElementById('btn__login');
 export const btnLogout = document.getElementById('btn__logout');
 export const btnRegister = document.getElementById('btn__register');
-export const accountLink = document.getElementById('nav__account');
 export const navAccount = document.getElementById('nav__account');
 export const createLi = document.getElementById('nav__createli');
 
@@ -35,6 +34,14 @@ export const regPassword = document.getElementById('register__password');
 export const regPassErr = document.querySelector('.reg__password__error');
 export const regAvatar = document.getElementById('register__avatar');
 export const okMsg = document.querySelector('.msg__ok');
+
+// Create entry Modal
+export const createForm = document.getElementById('create__entry');
+export const mediaOne = document.querySelector('#media__one');
+export const mediaTwo = document.querySelector('#media__two');
+export const mediaThree = document.querySelector('#media__three');
+export const createErr = document.getElementById('create__error');
+
 // modal validations
 export const errmsg = document.querySelector('#form__error');
 export const emailError = document.querySelector('.email__error');
@@ -53,12 +60,16 @@ export const accCredit = document.getElementById('acc__usercredit');
 export const badgeWin = document.querySelector('.badge__wins');
 export const badgeLi = document.querySelector('.badge__listings');
 export const badgeBids = document.querySelector('.badge__bids');
+export const avatarForm = document.getElementById('form__avatar');
+export const avatarErr = document.querySelector('.avatar__error');
+export const avatarInput = document.querySelector('#avatar__media');
 
 // product page
 export const productTitle = document.getElementById('product__title');
 export const productDesc = document.getElementById('product__desc');
 export const productBid = document.getElementById('Curr__bid');
 export const productEnds = document.getElementById('product__ends');
+export const bidInput = document.getElementById('bid__input');
 //               Images
 export const mainImage = document.getElementById('main__image');
 export const thumbImgs = document.getElementById('thumb__image');
@@ -66,5 +77,11 @@ export const changeImage = document.getElementById('change__image');
 export const thumbImg = document.getElementById('thumb__image');
 //               Form
 export const bidForm = document.getElementById('form__bid');
+export const cardWrapper = document.querySelector('.card__wrapper');
 
 // account page
+
+// error msg
+export const msgWrapper = document.getElementById('msg__wrapper');
+export const alertMsg = document.querySelector('#alert__msg');
+export const errormsg = document.querySelector('.err__msg');
