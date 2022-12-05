@@ -43,22 +43,23 @@ export function funcUserReg() {
         }
         if (emailVali(email) === true) {
             console.log('OK');
-            regEmail.classList.remove('bg-err-red');
-            regEmail.classList.add('bg-ok-green');
+            regEmail.classList.remove('border-danger');
+            regEmail.classList.add('border-success');
             regEmailErr.innerHTML = ``;
         } else {
-            regEmail.classList.remove('bg-ok-green');
-            regEmail.classList.add('bg-err-red');
+            regEmail.classList.remove('border-success');
+            regEmail.classList.add('border-danger');
             regEmailErr.innerHTML = `<p>Domain must be stud.noroff.no</p>`;
         }
         if (password.length < 8) {
             console.log('password feil');
             regPassErr.innerHTML = `<p>Must be at least 8 characters</p>`;
-            regPassword.classList.add('bg-err-red');
+            regPassword.classList.remove('border-success');
+            regPassword.classList.add('border-danger');
         } else {
             console.log('passord ok');
-            regPassword.classList.add('bg-ok-green');
-            regPassword.classList.remove('bg-err-red');
+            regPassword.classList.add('border-success');
+            regPassword.classList.remove('border-danger');
             regPassErr.innerHTML = '';
         }
 
@@ -71,8 +72,10 @@ export function funcUserReg() {
                 body: JSON.stringify(formDataSeri),
             });
             console.log(response);
-            const data = response.statusCode;
-            if (data === 400) {
+            const data = await response.json();
+            console.log(data);
+            const status = response.statusCode;
+            if (status === 400) {
                 console.log('error kode 400');
             } else {
                 okMsg.innerHTML = '';

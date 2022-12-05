@@ -12,6 +12,8 @@ import {
 import { getOptionAuth } from './components/Api/options.mjs';
 import { hamburgerAnimation } from './components/hamburger.mjs';
 import { updateAvatar } from './components/Api/changeavatar.mjs';
+import { showHistoryListings } from './components/templates/showhistory.mjs';
+import { showHistoryWins } from './components/templates/showwins.mjs';
 hamburgerAnimation();
 pageHelpers();
 updateAvatar();
@@ -21,9 +23,10 @@ updateAvatar();
 
 // Legg til denne for hvis status = true
 // if (!response.status === true)
+
 async function getAccountInfo() {
     const isUser = userName;
-    // console.log(isUser);
+    console.log(isUser);
 
     if (isUser === isUser) {
         try {
@@ -33,29 +36,25 @@ async function getAccountInfo() {
             // const listing = data.listings;
             // console.log('reponse code', response.status);
             // // console.log(listing);
-            console.log(response.ok);
-            // console.log(data);
+            // console.log(response.ok);
+            console.log(data);
             // console.log(data.avatar);
-
             document.title = `Auction Wars | ${data.name}`;
+            const imgSrc = data.avatar;
 
-            // console.log(avatar.src);
-            // console.log(data.avatar);
-            // const avatarNull = avatar.src;
-            // console.log(avatarNull);
-            if (avatar !== null) {
+            if (imgSrc.length !== 0) {
                 avatar.src = `${data.avatar}`;
             } else {
                 avatar.src = '../../img/noun-person-5178759.png';
             }
-            // accAvatar.innerHTML = `<img class="rounded-circle mt-1 me-3 bg-light acc__avatar" onerror="this.src = './img/noun-person-5178759.png';" src="${data.avatar}">`;
             accName.textContent = `${data.name}`;
             accMail.textContent = `${data.email}`;
             accCredit.textContent = `${data.credits}`;
 
             const noListings = data.listings.length;
-            if (!noListings === 0) {
-                badgeLi.textContent = `${data.listings}`;
+            // console.log(noListings);
+            if (noListings !== 0) {
+                badgeLi.textContent = `${data.listings.length}`;
             } else {
                 badgeLi.textContent = `0`;
             }
@@ -65,6 +64,9 @@ async function getAccountInfo() {
             } else {
                 badgeWin.textContent = `0`;
             }
+            showHistoryListings(data);
+            showHistoryWins(data);
+
             loader.innerHTML = '';
         } catch (err) {
             console.log(err);

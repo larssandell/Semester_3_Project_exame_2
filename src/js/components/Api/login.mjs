@@ -12,9 +12,9 @@ import { loggedIn } from '../templates/loggedin.mjs';
 import { emailVali } from '../variables.mjs';
 // import { localStorage } from '../helpers/localstorage.mjs';
 import { okLogin, alertLogin } from '../error.mjs';
-import { pageHelpers } from '../helpers/helpers.mjs';
+// import { pageHelpers } from '../helpers/helpers.mjs';
 // console.log(formLogin);
-pageHelpers();
+// pageHelpers();
 export function funcUserLogin() {
     formLogin.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -26,20 +26,20 @@ export function funcUserLogin() {
         // console.log(email);
         // console.log(password);
         if (emailVali(email)) {
-            emailInput.classList.remove('bg-err-red');
-            emailInput.classList.add('bg-ok-green');
+            emailInput.classList.remove('border-danger');
+            emailInput.classList.add('border-success');
             emailError.textContent = '';
         } else {
-            emailInput.classList.remove('bg-ok-green');
-            emailInput.classList.add('bg-err-red');
+            emailInput.classList.remove('border-success');
+            emailInput.classList.add('border-danger');
             emailError.textContent = 'Domain must be stud.noroff.no';
         }
         if (password.length < 8) {
             passwordError.textContent = 'Must be at least 8 characters';
-            passwordInput.classList.add('bg-err-red');
+            passwordInput.classList.add('border-danger');
         } else {
-            passwordInput.classList.remove('bg-err-red');
-            passwordInput.classList.add('bg-ok-green');
+            passwordInput.classList.remove('border-danger');
+            passwordInput.classList.add('border-success');
             passwordError.textContent = '';
         }
 
@@ -53,25 +53,25 @@ export function funcUserLogin() {
             const userToken = data.accessToken;
             const userName = data.name;
             const userCredits = data.credits;
-            localStorage.setItem('userName', userName);
-            localStorage.setItem('accessToken', userToken);
-            localStorage.setItem('credits', userCredits);
-            console.log(data);
-            // console.log(response.status);
-            console.log(response);
-            const auth = response.ok;
-            // må ha med 400 og 401
-            if (!auth === false) {
-                loggedIn();
+            const valiLogin = response.ok;
+            console.log('return ok', valiLogin);
+            if (valiLogin !== false) {
+                localStorage.setItem('userName', userName);
+                localStorage.setItem('accessToken', userToken);
+                localStorage.setItem('credits', userCredits);
                 okLogin();
+                loggedIn();
                 setTimeout(() => {
                     location.reload();
                 }, 3000);
-                console.log('inne', auth);
+                console.log('inne', valiLogin);
             } else {
-                console.log('feil', auth);
+                console.log('feil', valiLogin);
                 alertLogin();
             }
+            // console.log(data);
+            // console.log(response.status);
+            // console.log(response);
         } catch (err) {
             console.log(err);
         }

@@ -174,11 +174,7 @@
         </header>
         <main class="mb-auto">
             <div id="msg__wrapper">
-                <div
-                    id="alert__msg"
-                    class="alert err__msg alert-success"
-                    role="alert"
-                ></div>
+                <div id="alert__msg" class="alert err__msg" role="alert"></div>
             </div>
             <div
                 id="loader"
@@ -215,6 +211,8 @@
                 aria-hidden="true"
                 aria-labelledby="loginModalLabel"
                 tabindex="-1"
+                data-backdrop="false"
+                data-keyboard="true"
             >
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content bg-dark">
@@ -315,6 +313,8 @@
                 aria-hidden="true"
                 aria-labelledby="registerLabel"
                 tabindex="-1"
+                data-backdrop="false"
+                data-keyboard="true"
             >
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content bg-dark">
@@ -454,6 +454,8 @@
                 tabindex="-1"
                 aria-labelledby="createlistLabel"
                 aria-hidden="true"
+                data-backdrop="false"
+                data-keyboard="true"
             >
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content bg-dark">
@@ -525,13 +527,6 @@
                                     />
                                 </div>
                                 <div class="mb-3">
-                                    <!-- <label for="endsAt">Ends At:</label>
-                                    <input
-                                        type="datetime"
-                                        name="endsAt"
-                                        id="endsAt"
-                                        class="form-control"
-                                    /> -->
                                     <label for="endsAt">Ends at:</label>
                                     <input
                                         id="endsAt"

@@ -5,23 +5,28 @@ export function showCloseErr() {
     setTimeout(() => {
         // Closing the alert
         errormsg.classList.remove('showmsg');
+        errormsg.classList.remove('alert-danger');
+        errormsg.classList.remove('alert-success');
+        alertMsg.textContent = '';
+        console.log('ferdig');
     }, 2800);
 }
 
 // login alert
 export function okLogin() {
+    errormsg.classList.add('alert-success');
     alertMsg.textContent = 'Login authorized';
     setTimeout(() => {
         showCloseErr();
-    }, 10);
+    }, 20);
 }
 export function alertLogin() {
-    errormsg.classList.remove('alert-success');
+    alertMsg.textContent = '';
     errormsg.classList.add('alert-danger');
     alertMsg.textContent = 'Login unauthorized';
     setTimeout(() => {
         showCloseErr();
-    }, 10);
+    }, 20);
 }
 export function msgAlert(response) {
     errormsg.classList.remove('alert-success');
@@ -29,7 +34,7 @@ export function msgAlert(response) {
     alertMsg.textContent = `${response.statusText}`;
     setTimeout(() => {
         showCloseErr();
-    }, 10);
+    }, 20);
 }
 export function msgOk(response) {
     errormsg.classList.remove('alert-danger');
@@ -37,7 +42,7 @@ export function msgOk(response) {
     alertMsg.textContent = `${response.statusText}`;
     setTimeout(() => {
         showCloseErr();
-    }, 10);
+    }, 20);
 }
 
 // sessionStorage.setItem('key', 'value');
