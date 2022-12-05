@@ -9,6 +9,7 @@ export function updateAvatar() {
         e.preventDefault();
         const formData = new FormData(avatarForm);
         const formDataSeri = Object.fromEntries(formData);
+        console.log(formData);
         console.log(formDataSeri);
         try {
             const response = await fetch(profileAvatar, {

@@ -9,7 +9,7 @@ export function indexCards(ele) {
                                     <img
                                         class="card-img-top"
                                         src="${ele.media[0]}"
-                                        alt=""
+                                        alt="${ele.title}"
                                         onerror="this.src = './img/no-image.png';" alt="No image provided"
                                     />
                                 </a>
