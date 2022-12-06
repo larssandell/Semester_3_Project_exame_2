@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Auction wars is a Auction house where you can buy and sell"
+        />
+        <meta name="keywords" content="Auction, Sell, Buy, look, for all" />
+        <link rel="stylesheet" href="dist/css/styles.css" />
+        <link rel="icon" href="/img/icon-white-gold.png" />
+        <script type="module" src="./src/js/product.js"></script>
+        <script
+            src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            defer
+        ></script>
+        <title>Auction Wars | title name</title>
+    </head>
+    <body class="d-flex flex-column min-vh-100 bg-mainbg">
+        <header class="sticky-top navbar-expand-md mb-4 navbar-dark bg-dark">
+            <div class="container custom__xs__container">
+                <div class="row align-items-center mt-1 header__grid__custom">
+                    <div class="col header__logo">
+                        <a
+                            href="index.html"
+                            class="navbar-brand mb-0 h1 user-select-none text-uppercase fw-bold"
+                        >
+                            <img
+                                class="d-inline-block align-center"
+                                src="/img/logowhite-gold.png"
+                                alt="Site logo, judge hammer"
+                                width="auto"
+                                height="45"
+                            />
+                            Auction war
+                        </a>
+                    </div>
+                    <div class="col header__actions">
+                        <a
+                            id="btn__login"
+                            class="btn btn-outline-light btn-sm"
+                            data-bs-toggle="modal"
+                            role="button"
+                            href="#login__modal"
+                            type="button"
+                        >
+                            Login
+                        </a>
+                        <a
+                            id="btn__register"
+                            type="button"
+                            class="btn btn-outline-warning btn-sm ms-1"
+                            data-bs-toggle="modal"
+                            role="button"
+                            href="#register__modal"
+                        >
+                            register
+                        </a>
+                        <a
+                            id="btn__logout"
+                            type="button"
+                            class="btn btn-outline-warning btn-sm ms-1"
+                            data-bs-toggle="modal"
+                            role="button"
+                            href="#"
+                            style="display: none"
+                        >
+                            Logout
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <nav
+                            class="navbar navbar-expand-md justify-content-end navbar-dark bg-dark text-right"
+                        >
+                            <button
+                                id="hamburger__icon"
+                                class="hamburger__btn navbar-toggler"
+                                aria-expanded="false"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#navbar__menu"
+                                aria-controls="navbar__menu"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation"
+                            >
+                                <svg
+                                    stroke="#d2ac47"
+                                    class="hamburger"
+                                    viewBox="0 0 100 100"
+                                    width="40"
+                                >
+                                    <line
+                                        class="line top"
+                                        x1="90"
+                                        x2="10"
+                                        y1="40"
+                                        y2="40"
+                                        stroke-width="10"
+                                        stroke-linecap="round"
+                                        stroke-dasharray="80"
+                                        stroke-dashoffset="0"
+                                    ></line>
+                                    <line
+                                        class="line bottom"
+                                        x1="10"
+                                        x2="90"
+                                        y1="60"
+                                        y2="60"
+                                        stroke-width="10"
+                                        stroke-linecap="round"
+                                        stroke-dasharray="80"
+                                        stroke-dashoffset="0"
+                                    ></line>
+                                </svg>
+                            </button>
+                            <div
+                                class="collapse navbar-collapse"
+                                id="navbar__menu"
+                            >
+                                <div class="d-flex justify-content-center">
+                                    <form
+                                        id="form__search"
+                                        class="input-group-sm"
+                                    >
+                                        <input
+                                            type="search"
+                                            id="search"
+                                            class=""
+                                            placeholder="Search.."
+                                        />
+                                    </form>
+                                </div>
+                                <div class="ms-auto">
+                                    <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                                            <a
+                                                href="/index.html"
+                                                class="nav-link"
+                                                >Home</a
+                                            >
+                                        </li>
+                                        <li class="nav-item">
+                                            <a
+                                                href="/auctions.html"
+                                                class="nav-link"
+                                                >Auctions</a
+                                            >
+                                        </li>
+                                        <li class="nav-item" id="nav__createli">
+                                            <a
+                                                class="nav-link pe-0"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#createlistModal"
+                                                >Create listing</a
+                                            >
+                                        </li>
+                                        <li id="nav__account" class="nav-item">
+                                            <a
+                                                href="/account.html"
+                                                class="nav-link pe-0"
+                                                >Account</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="mb-auto">
+            <div id="msg__wrapper">
+                <div
+                    id="alert__msg"
+                    class="alert err__msg alert-success"
+                    role="alert"
+                ></div>
+            </div>
+            <section>
+                <div class="container mt-4">
+                    <div class="border-bottom mb-2 border-warning"></div>
+                    <a
+                        href="/auctions.html"
+                        type="button"
+                        class="btn btn-outline-light"
+                        >Back</a
+                    >
+                </div>
+            </section>
+            <div class="container mt-5 mb-5">
+                <div
+                    id="loader"
+                    class="d-flex align-items-center justify-content-center"
+                >
+                    <div class="spinner-grow bg-warning" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-10">
+                        <div class="card text-white bg-dark">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="images p-3">
+                                        <div
+                                            id="main__image"
+                                            class="text-center pb-4 main-gallery"
+                                        ></div>
+                                        <div
+                                            id="thumb__image"
+                                            class="thumbnail text-center"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="product p-3">
+                                        <div
+                                            class="d-flex justify-content-between align-items-center"
+                                        >
+                                            <div
+                                                class="d-flex align-items-center"
+                                            ></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <span
+                                                id="product__title"
+                                                class="brand"
+                                            ></span>
+                                            <div
+                                                class="price d-flex flex-row align-items-center"
+                                            ></div>
+                                        </div>
+                                        <p id="product__desc" class="about"></p>
+                                        <div class="sizes mt-5">
+                                            <p class="">
+                                                Current bid:
+                                                <span id="Curr__bid"></span>
+                                            </p>
+                                            <div id="time__left" class="">
+                                                Time left:
+                                            </div>
+                                            <form id="form__bid">
+                                                <div class="input-group mb-3">
+                                                    <label
+                                                        for="bid__input"
+                                                    ></label>
+                                                    <input
+                                                        id="bid__input"
+                                                        type="number"
+                                                        class="form-control rounded-1"
+                                                        placeholder="Bid amount"
+                                                        name="amount"
+                                                    />
+                                                    <div
+                                                        class="input-group-append"
+                                                    >
+                                                        <button
+                                                            class="btn btn-outline-warning ms-1"
+                                                            id="bid__submit"
+                                                            type="submit"
+                                                            value="submit"
+                                                        >
+                                                            Bid
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <div class="d-flex">
+                                                Ends at:
+                                                <div id="product__ends"></div>
+                                            </div>
+                                            <div class="mt-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center mt-1">
+                    <div class="col-md-10">
+                        <div class="card bg-dark container">
+                            <h5>Latest bids:</h5>
+                            <ul
+                                class="list-group list-group-light pb-2"
+                                style="width: 200px"
+                            >
+                                <li
+                                    class="list-group-item d-flex justify-content-between align-items-center"
+                                >
+                                    <div class="d-flex align-items-center">
+                                        <img
+                                            src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                                            alt=""
+                                            style="width: 45px; height: 45px"
+                                            class="rounded-circle"
+                                            id="bider__avatar"
+                                        />
+                                        <div class="ms-3">
+                                            <p
+                                                id="bider__name"
+                                                class="fw-bold mb-1"
+                                            >
+                                                John Doe
+                                            </p>
+                                            <p class="mb-1">
+                                                Bid:
+                                                <span id="bider__amount"
+                                                    >50</span
+                                                >
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul
+                                class="list-group list-group-light pb-2"
+                                style="width: 200px"
+                            >
+                                <li
+                                    class="list-group-item d-flex justify-content-between align-items-center"
+                                >
+                                    <div class="d-flex align-items-center">
+                                        <img
+                                            src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                                            alt=""
+                                            style="width: 45px; height: 45px"
+                                            class="rounded-circle"
+                                            id="bider__avatar"
+                                        />
+                                        <div class="ms-3">
+                                            <p
+                                                id="bider__name"
+                                                class="fw-bold mb-1"
+                                            >
+                                                John Doe
+                                            </p>
+                                            <p class="mb-1">
+                                                Bid:
+                                                <span id="bider__amount"
+                                                    >50</span
+                                                >
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-footerbg mt-3">
+            <!-- Modal for login -->
+            <div
+                class="modal fade"
+                id="login__modal"
+                aria-hidden="true"
+                aria-labelledby="loginModalLabel"
+                tabindex="-1"
+            >
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-dark">
+                        <div
+                            class="modal-header d-flex justify-content-between"
+                        >
+                            <div>
+                                <img
+                                    class="d-inline-block align-center"
+                                    src="/img/logowhite-gold.png"
+                                    alt="Site logo, judge hammer"
+                                    width="auto"
+                                    height="45"
+                                />
+                            </div>
+                            <div>
+                                <h5 class="modal-title" id="loginModalLabel">
+                                    Login
+                                </h5>
+                            </div>
+                            <div>
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                    id="exit__btn"
+                                ></button>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <form id="form__login">
+                                <div class="mb-3">
+                                    <label for="login__email" class="form-label"
+                                        >Email address:</label
+                                    >
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        id="login__email"
+                                        aria-describedby="email__error"
+                                        placeholder="Email"
+                                        name="email"
+                                    />
+                                    <div
+                                        id="form__error"
+                                        class="form-text email__error"
+                                    ></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label
+                                        for="login__password"
+                                        class="form-label"
+                                        >Password:</label
+                                    >
+                                    <input
+                                        type="password"
+                                        class="form-control"
+                                        id="login__password"
+                                        name="password"
+                                        aria-describedby="password__error"
+                                        placeholder="Password"
+                                    />
+                                    <div
+                                        id="form__error"
+                                        class="form-text password__error"
+                                    ></div>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-outline-light"
+                                        id="login__submit"
+                                        value="Submit"
+                                    >
+                                        Login
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                class="btn btn-primary"
+                                data-bs-target="#register__modal"
+                                data-bs-toggle="modal"
+                                data-bs-dismiss="modal"
+                            >
+                                Register new User
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal for Register -->
+            <div
+                class="modal fade"
+                id="register__modal"
+                aria-hidden="true"
+                aria-labelledby="registerLabel"
+                tabindex="-1"
+            >
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-dark">
+                        <div
+                            class="modal-header d-flex justify-content-between"
+                        >
+                            <div>
+                                <img
+                                    class="d-inline-block align-center"
+                                    src="/img/logowhite-gold.png"
+                                    alt="Site logo, judge hammer"
+                                    width="auto"
+                                    height="45"
+                                />
+                            </div>
+                            <div class="msg__ok">
+                                <h5 class="modal-title" id="registerLabel">
+                                    Register new user
+                                </h5>
+                            </div>
+                            <div>
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                    id="exit__btn"
+                                ></button>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <form id="form__register">
+                                <div class="mb-3">
+                                    <label
+                                        for="register__name"
+                                        class="form-label"
+                                        >Name:</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="register__name"
+                                        aria-describedby="name__error"
+                                        placeholder="Name"
+                                        name="name"
+                                    />
+                                    <div
+                                        id="form__error"
+                                        class="form-text name__error"
+                                    ></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label
+                                        for="register__email"
+                                        class="form-label"
+                                        >Email address:</label
+                                    >
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        id="register__email"
+                                        aria-describedby="email__error"
+                                        placeholder="Email"
+                                        name="email"
+                                    />
+                                    <div
+                                        id="form__error"
+                                        class="form-text reg_email__error"
+                                    ></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label
+                                        for="register__password"
+                                        class="form-label"
+                                        >Password:</label
+                                    >
+                                    <input
+                                        type="password"
+                                        class="form-control"
+                                        id="register__password"
+                                        aria-describedby="password__error"
+                                        placeholder="Password"
+                                        name="password"
+                                    />
+                                    <div
+                                        id="form__error"
+                                        class="form-text reg__password__error"
+                                    ></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label
+                                        for="register__avatar"
+                                        class="form-label"
+                                        >Avatar:</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="register__avatar"
+                                        aria-describedby="avatar__error"
+                                        placeholder="Avatar Url"
+                                        name="avatar"
+                                    />
+                                    <div
+                                        id="avatar__error"
+                                        class="form-text"
+                                    ></div>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-outline-warning"
+                                        id="btn__register"
+                                    >
+                                        Register
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                class="btn btn-primary"
+                                data-bs-target="#login__modal"
+                                data-bs-toggle="modal"
+                                data-bs-dismiss="modal"
+                            >
+                                Back to login
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal for createlist -->
+            <div
+                class="modal fade"
+                id="createlistModal"
+                tabindex="-1"
+                aria-labelledby="createlistLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="createlistLabel">
+                                Create Listing
+                            </h1>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="title">Title:</label>
+                                    <input
+                                        id="title"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Title"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description"
+                                        >Description:</label
+                                    >
+                                    <textarea
+                                        type="textarea"
+                                        name="description"
+                                        id="description"
+                                        class="form-control"
+                                    ></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tags">Tags:</label>
+                                    <input
+                                        type="text"
+                                        name="tags"
+                                        id="tags"
+                                        class="form-control"
+                                        placeholder="Tags"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tags">Media:</label>
+                                    <input
+                                        type="text"
+                                        name="media"
+                                        id="media"
+                                        class="form-control"
+                                        placeholder="https://url.com/image.jpg"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="endsAt">Ends At:</label>
+                                    <input
+                                        type="text"
+                                        name="endsAt"
+                                        id="endsAt"
+                                        class="form-control"
+                                    />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-outline-light"
+                                data-bs-dismiss="modal"
+                            >
+                                Close
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-outline-warning"
+                            >
+                                Create
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal for createlist -->
+            <div
+                class="modal fade"
+                id="createlistModal"
+                tabindex="-1"
+                aria-labelledby="createlistLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="createlistLabel">
+                                Create Listing
+                            </h1>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="create__entry">
+                                <div class="mb-3">
+                                    <label for="create__title">Title:</label>
+                                    <input
+                                        id="create__title"
+                                        type="text"
+                                        name="title"
+                                        class="form-control"
+                                        placeholder="Title"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description"
+                                        >Description:</label
+                                    >
+                                    <textarea
+                                        type="textarea"
+                                        name="description"
+                                        id="description"
+                                        class="form-control"
+                                    ></textarea>
+                                </div>
+                                <!-- <div class="mb-3">
+                                    <label for="tags">Tags:</label>
+                                    <input
+                                        type="text"
+                                        id="tags"
+                                        class="form-control"
+                                        placeholder="Tags"
+                                    />
+                                </div> -->
+                                <div class="mb-3">
+                                    <label for="media">Media:</label>
+                                    <input
+                                        type="text"
+                                        name="media"
+                                        class="form-control"
+                                        placeholder="https://url.com/image.jpg"
+                                    />
+                                    <div class="my-2">
+                                        <input
+                                            type="text"
+                                            name="media"
+                                            class="form-control"
+                                            placeholder="https://url.com/image.jpg"
+                                        />
+                                    </div>
+                                    <input
+                                        type="text"
+                                        name="media"
+                                        class="form-control"
+                                        placeholder="https://url.com/image.jpg"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="endsAt">Ends at:</label>
+                                    <input
+                                        id="endsAt"
+                                        type="datetime-local"
+                                        class="form-control"
+                                    />
+                                </div>
+                                <div
+                                    id="create__error"
+                                    class="text-danger"
+                                ></div>
+                                <div class="d-flex justify-content-end">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-outline-warning"
+                                    >
+                                        Create
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-outline-light"
+                                data-bs-dismiss="modal"
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-start d-flex align-items-center h-100">
+                <p class="mb-0">2022 &copy; Auction House</p>
+            </div>
+        </footer>
+    </body>
+</html>
