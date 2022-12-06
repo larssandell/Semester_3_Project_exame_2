@@ -1,7 +1,7 @@
 export const histList = document.getElementById('history__list');
 export const histWins = document.getElementById('history__wins');
 
-export async function showHistoryListings(ele) {
+export function showHistoryListings(ele) {
     // console.log('export show history data');
     // console.log('fra lopp import', ele);
     for (let i = 0; i < ele.listings.length; i++) {

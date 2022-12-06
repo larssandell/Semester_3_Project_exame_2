@@ -14,15 +14,15 @@ import { hamburgerAnimation } from './components/hamburger.mjs';
 import { updateAvatar } from './components/Api/changeavatar.mjs';
 import { showHistoryListings } from './components/templates/showhistory.mjs';
 import { showHistoryWins } from './components/templates/showwins.mjs';
+import { createEntryListing } from './components/Api/createlisting.mjs';
+
 hamburgerAnimation();
 pageHelpers();
 updateAvatar();
+createEntryListing();
 // console.log(userName);
 // console.log(accUrlId);
 // console.log(token);
-
-// Legg til denne for hvis status = true
-// if (!response.status === true)
 
 async function getAccountInfo() {
     const isUser = userName;
@@ -33,6 +33,10 @@ async function getAccountInfo() {
             const response = await fetch(accUrlId, getOptionAuth);
             const data = await response.json();
             const avatar = document.querySelector('.acc__avatar');
+
+            // Legg til denne for hvis status = true
+            // if (!response.status === true)
+
             // const listing = data.listings;
             // console.log('reponse code', response.status);
             // // console.log(listing);
@@ -64,8 +68,10 @@ async function getAccountInfo() {
             } else {
                 badgeWin.textContent = `0`;
             }
-            showHistoryListings(data);
-            showHistoryWins(data);
+            setTimeout(() => {
+                showHistoryListings(data);
+                showHistoryWins(data);
+            }, 20);
 
             loader.innerHTML = '';
         } catch (err) {

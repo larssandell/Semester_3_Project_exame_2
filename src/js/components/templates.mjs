@@ -1,7 +1,22 @@
 import { indexMain } from './document.mjs';
-
+import { formatTimeline } from './datetime.mjs';
 // Cards
-export function indexCards(ele) {
+export async function indexCards(ele) {
+    // utcDate('2022-12-06T12:38:19.759Z');
+    // const convertUtc = ele.created;
+    // const isoTime = ele.created;
+    // const date = new Date(isoTime);
+    const element = new Date();
+    formatTimeline(element);
+    console.log(element);
+    // utcDate(element);
+    // console.log(element);
+    // const convertTime = ele.created;
+    // console.log('ikke fra export', newUtcDate);
+    // console.log(convertTime);
+    // console.log(newDate);
+    // console.log(convertTime);
+
     indexMain.innerHTML += `
                             <div class="col-sm-6 col-md-4 col-lg-3 mb-1">
                             <div id="custom__card" class="card">

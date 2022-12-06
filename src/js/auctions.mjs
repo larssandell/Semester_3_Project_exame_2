@@ -4,7 +4,9 @@ import { pageHelpers } from './components/helpers/helpers.mjs';
 import { indexCards } from './components/templates.mjs';
 import { loader } from './components/document.mjs';
 import { hamburgerAnimation } from './components/hamburger.mjs';
+import { createEntryListing } from './components/Api/createlisting.mjs';
 
+createEntryListing();
 hamburgerAnimation();
 pageHelpers();
 async function getlistingsAll() {

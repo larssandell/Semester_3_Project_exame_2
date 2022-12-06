@@ -10,7 +10,7 @@
         <meta name="keywords" content="Auction, Sell, Buy, look, for all" />
         <link rel="stylesheet" href="dist/css/styles.css" />
         <link rel="icon" href="/img/icon-white-gold.png" />
-        <script type="module" src="./src/js/auctions.js"></script>
+        <script type="module" src="./src/js/auctions.mjs"></script>
         <script
             src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             defer
@@ -512,7 +512,7 @@
                                         class="form-control"
                                     ></textarea>
                                 </div>
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label for="tags">Tags:</label>
                                     <input
                                         type="text"
@@ -520,26 +520,26 @@
                                         class="form-control"
                                         placeholder="Tags"
                                     />
-                                </div>
+                                </div> -->
                                 <div class="mb-3">
                                     <label for="media">Media:</label>
                                     <input
                                         type="text"
-                                        id="media__one"
+                                        name="media"
                                         class="form-control"
                                         placeholder="https://url.com/image.jpg"
                                     />
                                     <div class="my-2">
                                         <input
                                             type="text"
-                                            id="media__two"
+                                            name="media"
                                             class="form-control"
                                             placeholder="https://url.com/image.jpg"
                                         />
                                     </div>
                                     <input
                                         type="text"
-                                        id="media__three"
+                                        name="media"
                                         class="form-control"
                                         placeholder="https://url.com/image.jpg"
                                     />

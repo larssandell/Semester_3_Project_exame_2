@@ -36,7 +36,7 @@ async function getProduct() {
             mainImage.innerHTML = `<img src="${data.media[0]}"
                             width="250"
                             onerror="this.src = './img/no-image.png';"
-                            alt=""
+                            alt="${data.title}"
                             id="current"
                             class="rounded-1 img-fluid current"
                             />`;
@@ -47,6 +47,7 @@ async function getProduct() {
 
                                             onerror="this.src = './img/no-image.png';"
                                             src="${data.media[i]}"
+                                            alt="${data.title}"
                                             width="70"
                                             id="change__image"
                                             class="rounded-1 img-fluid small"
