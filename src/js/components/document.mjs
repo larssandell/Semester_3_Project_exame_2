@@ -75,10 +75,13 @@ export const mainImage = document.getElementById('main__image');
 export const thumbImgs = document.getElementById('thumb__image');
 export const changeImage = document.getElementById('change__image');
 export const thumbImg = document.getElementById('thumb__image');
+export const sellerName = document.getElementById('time__left');
 //               Form
 export const bidForm = document.getElementById('form__bid');
 export const cardWrapper = document.querySelector('.card__wrapper');
 
+// auction page
+export const searchInput = document.getElementById('search__input');
 // account page
 
 // error msg

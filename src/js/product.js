@@ -7,6 +7,7 @@ import {
     productDesc,
     productBid,
     productEnds,
+    sellerName,
     thumbImgs,
     loader,
     cardWrapper,
@@ -15,6 +16,7 @@ import { placeABid } from './components/Api/placebid.mjs';
 import { changeImageThumb } from './components/thumbnail.mjs';
 // import { showCloseErr } from './components/error.mjs';
 import { hamburgerAnimation } from './components/hamburger.mjs';
+import { timeDateConvI } from './components/datetime.mjs';
 
 hamburgerAnimation();
 pageHelpers();
@@ -26,7 +28,7 @@ async function getProduct() {
         const status = response.ok;
         // console.log(response.status);
         // console.log(response.ok);
-        // console.log(data);
+        console.log(data);
         // console.log(data.statusCode);
         // console.log(error.message);
         if (!status === false) {
@@ -54,10 +56,16 @@ async function getProduct() {
 
                                         />`;
             }
+            timeDateConvI(data);
+            console.log(timeDateConvI(data));
+            const converted = timeDateConvI(data);
+            console.log(converted);
+            sellerName.innerText = `Seller: ${data.seller.name}`;
             productTitle.innerHTML = `<h3>${data.title}</h3>`;
             productDesc.textContent = `${data.description}`;
             productBid.textContent = 'No bids';
-            productEnds.textContent = `${data.endsAt}`;
+            productEnds.textContent = `Ends at: ${converted}`;
+
             for (let i = 0; i < data.bids.length; i++) {
                 console.log(data.bids[i]);
                 const bids = data.bids[i].amount;

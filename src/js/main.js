@@ -19,10 +19,26 @@ async function getlistingsAll() {
         const response = await fetch(listingsUrlPromo, getOption);
         const data = await response.json();
         console.log(data);
-        data.forEach(function (ele) {
-            indexCards(ele);
-        });
-        loader.innerHTML = '';
+        console.log(response.ok);
+        for (let i = 0; i < data.length; i++) {
+            console.log('data[i]', data[i]);
+            console.log(data[i].media.length);
+            if (data[i].media.length !== 0) {
+                indexCards(data, i);
+                loader.innerHTML = '';
+            }
+        }
+
+        // if (response.ok !== true) {
+        //     console.log('feil med API');
+        // } else {
+        //     console.log('du fikk kontakt');
+        //     loader.innerHTML = '';
+        //     console.log(data);
+        //     data.forEach(function (data) {
+        //         indexCards(data);
+        //     });
+        // }
     } catch (err) {
         console.log(err);
     }
