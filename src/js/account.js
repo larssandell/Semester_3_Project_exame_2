@@ -42,6 +42,7 @@ async function getAccountInfo() {
             // // console.log(listing);
             // console.log(response.ok);
             console.log(data);
+            // console.log(data.wins.length);
             // console.log(data.avatar);
             document.title = `Auction Wars | ${data.name}`;
             const imgSrc = data.avatar;

@@ -10,6 +10,10 @@
         <meta name="keywords" content="Auction, Sell, Buy, look, for all" />
         <link rel="stylesheet" href="dist/css/styles.css" />
         <link rel="icon" href="/img/icon-white-gold.png" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
         <script type="module" src="./src/js/auctions.mjs"></script>
         <script
             src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
@@ -18,7 +22,7 @@
         <title>Auction Wars | Auctions</title>
     </head>
     <body class="d-flex flex-column min-vh-100 bg-mainbg">
-        <header class="sticky-top navbar-expand-md mb-4 navbar-dark bg-dark">
+        <header class="sticky-top navbar-expand-md navbar-dark bg-dark">
             <div class="container custom__xs__container">
                 <div class="row align-items-center mt-1 header__grid__custom">
                     <div class="col header__logo">
@@ -119,19 +123,6 @@
                                 class="collapse navbar-collapse"
                                 id="navbar__menu"
                             >
-                                <div class="d-flex justify-content-center">
-                                    <form
-                                        id="form__search"
-                                        class="input-group-sm"
-                                    >
-                                        <input
-                                            type="search"
-                                            id="search"
-                                            class=""
-                                            placeholder="Search.."
-                                        />
-                                    </form>
-                                </div>
                                 <div class="ms-auto">
                                     <ul class="navbar-nav ms-auto">
                                         <li class="nav-item">
@@ -189,8 +180,8 @@
                 </div>
             </div>
             <section>
-                <div class="container mt-4">
-                    <div class="dropdown mb-2">
+                <div class="container">
+                    <!-- <div class="dropdown mb-2">
                         <button
                             class="btn btn-outline-warning dropdown-toggle"
                             type="button"
@@ -198,7 +189,7 @@
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                         >
-                            Dropdown button
+                            Filter
                         </button>
                         <ul
                             class="dropdown-menu bg-dark text-white"
@@ -215,9 +206,25 @@
                                 >
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                     <div class="border-bottom mb-2 border-warning">
-                        <h3>Auctions:</h3>
+                        <div
+                            id="search__wrapper"
+                            class="d-flex justify-content-center align-items-center mb-2"
+                        >
+                            <div class="search__box">
+                                <input
+                                    id="search__input"
+                                    type="text"
+                                    placeholder="Search"
+                                />
+                                <label class="icon">
+                                    <span class="material-symbols-outlined">
+                                        search
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <div id="index__main" class="row gy-3 text-black"></div>
                     <div class="mt-3">

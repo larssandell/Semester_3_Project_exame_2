@@ -7,9 +7,11 @@ export const bidUrl = 'auction/listings/' + id;
 export const regUrl = `${baseUrl}auction/auth/register`;
 export const loginUrl = `${baseUrl}auction/auth/login`;
 export const listingsUrl = `${baseUrl}auction/listings`;
-export const listingsUrlPromo = `${baseUrl}auction/listings?sort=created&_active=true&limit=4&_seller=true&_bids=true`;
-export const listingsUrTwelv = `${baseUrl}auction/listings?sort=created&_active=true&limit=12&_seller=true&_bids=true`;
-export const listingsUrlAll = `${baseUrl}auction/listings?_active=true&_seller=true&_bids=true`;
+// export const listingsUrlPromo = `${baseUrl}auction/listings?sort=order&_active=true&limit=4&_seller=true&_bids=true`;
+
+export const listingsUrlPromo = `${baseUrl}auction/listings?_active=true&sort=created&sortOrder=desc&_active=true&limit=4&_seller=true&_bids=true`;
+export const listingsUrTwelv = `${baseUrl}auction/listings?_active=true&sort=created&sortOrder=desc&_active=true&limit=12&_seller=true&_bids=true`;
+export const listingsUrlAll = `${baseUrl}auction/listings?_active=true&sort=created&sortOrder=desc&_seller=true&_bids=true`;
 export const profilUrl = `${baseUrl}auction/profiles/${userName}`;
 export const allProfilesUrl = `${baseUrl}auction/profiles`;
 export const productUrl = 'auction/listings/' + id;

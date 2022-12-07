@@ -1,15 +1,8 @@
 export const histList = document.getElementById('history__list');
-export const histWins = document.getElementById('history__wins');
 
 export function showHistoryListings(ele) {
-    // console.log('export show history data');
-    // console.log('fra lopp import', ele);
     for (let i = 0; i < ele.listings.length; i++) {
-        // console.log(ele.listings);
-        // console.log(ele.listings[i]);
-        // console.log(ele.listings[0].id);
-
-        // må ha en if hvis no listings
+        console.log(ele.listings[i]);
         if (ele.listings.length !== 0) {
             histList.innerHTML += `<ul
                                         class="list-group list-group-light pb-2"
@@ -35,19 +28,13 @@ export function showHistoryListings(ele) {
                                                         >
                                                             Title: ${ele.listings[i].title}
                                                         </p>
-                                                        <p class="mb-1">
-                                                            Ends:
-                                                            <span id="hist__created"
-                                                                >${ele.listings[i].created}</span
-                                                            >
-                                                        </p>
                                                     </div>
                                                 </div>
                                             </li>
                                             </a>
                                     </ul>`;
         } else {
-            histList.innerHTML = `<p>No listings</p>`;
+            console.log('no listings');
         }
     }
 }
