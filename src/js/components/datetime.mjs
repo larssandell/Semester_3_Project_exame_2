@@ -1,6 +1,7 @@
 export function timeDateConv(data, t) {
     const apiDate = new Date(`${data[t].endsAt}`);
     // const currentTime = new Date().getTime();
+    console.log('apiDate', apiDate);
     const convDate = Intl.DateTimeFormat('default', {
         dateStyle: 'short',
         timeStyle: 'short',

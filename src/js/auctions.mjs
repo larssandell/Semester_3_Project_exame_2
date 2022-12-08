@@ -1,4 +1,4 @@
-import { listingsUrTwelv } from './components/urls.mjs';
+import { getListingsUrl } from './components/urls.mjs';
 import { getOption } from './components/Api/options.mjs';
 import { pageHelpers } from './components/helpers/helpers.mjs';
 import { loader } from './components/document.mjs';
@@ -13,7 +13,7 @@ hamburgerAnimation();
 pageHelpers();
 async function getlistingsAll() {
     try {
-        const response = await fetch(listingsUrTwelv, getOption);
+        const response = await fetch(getListingsUrl(12), getOption);
         const data = await response.json();
         // console.log(data);
         if (response.ok !== true) {
@@ -24,9 +24,10 @@ async function getlistingsAll() {
         for (let i = 0; i < data.length; i++) {
             console.log('data[i]', data[i]);
             console.log(data[i].media.length);
-            if (data[i].media.length !== 0) {
-                indexCards(data, i);
-            }
+            // if (data[i].media.length !== 0) {
+            //     imgError();
+            indexCards(data, i);
+            // }
             // else {
             //     indexCards(data, i);
             // }

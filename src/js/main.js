@@ -1,4 +1,4 @@
-import { listingsUrlPromo } from './components/urls.mjs';
+import { getListingsUrl } from './components/urls.mjs';
 import { getOption } from './components/Api/options.mjs';
 import { loader } from './components/document.mjs';
 // import { pageHelpers } from './components/helpers/helpers.mjs';
@@ -16,7 +16,7 @@ loggedIn();
 logoutUser();
 async function getlistingsAll() {
     try {
-        const response = await fetch(listingsUrlPromo, getOption);
+        const response = await fetch(getListingsUrl(4), getOption);
         const data = await response.json();
         console.log(data);
         console.log(response.ok);
