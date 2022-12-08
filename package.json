@@ -27,6 +27,7 @@
     "devDependencies": {
         "@babel/core": "^7.19.3",
         "@babel/preset-env": "^7.19.4",
+        "bootstrap": "^5.2.3",
         "eslint": "^8.27.0",
         "eslint-plugin-jest": "^27.1.5",
         "husky": "^8.0.2",
@@ -47,8 +48,5 @@
         "/src/scss/*.scss": [
             "prettier --write"
         ]
-    },
-    "dependencies": {
-        "bootstrap": "^5.2.2"
     }
 }

@@ -9,9 +9,13 @@ export const loginUrl = `${baseUrl}auction/auth/login`;
 export const listingsUrl = `${baseUrl}auction/listings`;
 // export const listingsUrlPromo = `${baseUrl}auction/listings?sort=order&_active=true&limit=4&_seller=true&_bids=true`;
 
-export const listingsUrlPromo = `${baseUrl}auction/listings?_active=true&sort=created&sortOrder=desc&_active=true&limit=4&_seller=true&_bids=true`;
-export const listingsUrTwelv = `${baseUrl}auction/listings?_active=true&sort=created&sortOrder=desc&_active=true&limit=12&_seller=true&_bids=true`;
-export const listingsUrlAll = `${baseUrl}auction/listings?_active=true&sort=created&sortOrder=desc&_seller=true&_bids=true`;
+export function getListingsUrl(limit) {
+    const listingsUrl = `${baseUrl}auction/listings?sort=created&sortOrder=desc&limit=${limit}&_active=true&_seller=true&_bids=true`;
+    return listingsUrl;
+}
+export const listingsUrlPromo = `${baseUrl}auction/listings?sort=created&sortOrder=desc&limit=4&_active=true&_seller=true&_bids=true`;
+export const listingsUrTwelv = `${baseUrl}auction/listings?sort=created&sortOrder=desc&limit=12&_active=true&_seller=true&_bids=true`;
+export const listingsUrlAll = `${baseUrl}auction/listings?sort=created&sortOrder=desc&_active=true&_seller=true&_bids=true`;
 export const profilUrl = `${baseUrl}auction/profiles/${userName}`;
 export const allProfilesUrl = `${baseUrl}auction/profiles`;
 export const productUrl = 'auction/listings/' + id;
