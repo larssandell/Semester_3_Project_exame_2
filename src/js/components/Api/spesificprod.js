@@ -61,6 +61,7 @@ export async function ShowSpecificListing() {
             productBid.textContent = 'No bids';
             showBidBtn.style.display = 'none';
         } else {
+            showBidBtn.style.display = 'block';
             productBid.textContent = `${getData.bids[0].amount}`;
             for (let a = 0; a < bidsArray.length; a++) {
                 // console.log('bids a', bidsArray[a]);
