@@ -34,7 +34,7 @@ npm run build
 
 ```
 
-4. Start:
+4. Start saas watch and live-server:
 
 ```
 npm run start
