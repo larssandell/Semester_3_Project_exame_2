@@ -1,5 +1,5 @@
-import { historyHtml } from './historytemp.mjs';
-import { histWins } from '../document.mjs';
+import { historyHtml } from './historytemp.js';
+import { histWins } from '../document.js';
 
 export function showHistoryWins(data) {
     for (let i = 0; i <= data.wins.length; i++) {

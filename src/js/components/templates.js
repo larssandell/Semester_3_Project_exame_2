@@ -9,7 +9,7 @@ export function indexCards(data, i, whattext) {
     indexMain.innerHTML += `
                             <div class="col-sm-6 col-md-4 col-lg-3 mb-1">
                             <div id="custom__card" class="card">
-                                <a href="/product.html?id=${data[i].id}">
+                                <a href="./product.html?id=${data[i].id}">
                                     <img
                                         class="card-img-top"
                                         id="card__img"

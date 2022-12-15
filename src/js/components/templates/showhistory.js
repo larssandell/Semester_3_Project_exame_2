@@ -1,4 +1,4 @@
-import { historyHtml } from './historytemp.mjs';
+import { historyHtml } from './historytemp.js';
 export const histList = document.getElementById('history__list');
 
 export function showHistoryListings(data) {

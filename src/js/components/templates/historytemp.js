@@ -3,7 +3,7 @@ export function historyHtml(container, ele, o) {
                                         class="list-group list-group-light pb-2"
                                         style="width: auto"
                                     >
-                                        <a href="/product.html?id=${ele.id}"
+                                        <a href="./product.html?id=${ele.id}"
                                             <li
                                                 class="list-group-item d-flex justify-content-between align-items-center"
                                             >
