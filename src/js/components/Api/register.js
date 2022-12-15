@@ -6,6 +6,7 @@ import {
     regEmailErr,
     regPassErr,
     regPassword,
+    regError,
 } from '../document.js';
 import { msgOk, msgAlert } from '../error.js';
 import { regUrl } from '../urls.js';
@@ -67,13 +68,24 @@ export function funcUserReg() {
                     headersAuth,
                     formDataSeri
                 );
-                console.log(getReponse);
-                const status = getReponse.statusCode;
-                if (status === 400) {
-                    const message = getReponse.errors[0].message;
+                const getData = await getReponse.json();
+                // console.log('getData', getData);
+                // console.log(getReponse.ok);
+                // console.log(getData.errors[0]);
+
+                // const status = getReponse.statusCode;
+                // console.log(status);
+                if (getReponse.ok === false) {
+                    const message = getData.errors[0].message;
                     msgAlert(message);
+                    regError.innerHTML = `<p>${message}</p>`;
+                    regName.classList.add('border-danger');
+                    regEmail.classList.add('border-danger');
                 } else {
                     msgOk('User Created', name);
+                    regError.innerHTML = '';
+                    regName.classList.remove('border-danger');
+                    regEmail.classList.remove('border-danger');
                 }
             } catch (err) {
                 console.log(err);

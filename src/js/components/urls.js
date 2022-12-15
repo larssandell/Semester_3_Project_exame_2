@@ -13,7 +13,7 @@ export const createListingUrl = `${baseUrl}auction/listings`;
  * @returns
  */
 export function getListingsUrl(limit) {
-    const listingsUrl = `${baseUrl}auction/listings?sort=created&sortOrder=desc&limit=${limit}&_active=true&_seller=true&_bids=true`;
+    const listingsUrl = `${baseUrl}auction/listings?sortOrder=desc&limit=${limit}&_active=true&_seller=true&_bids=true`;
     return listingsUrl;
 }
 
@@ -26,7 +26,7 @@ export function listingsOffsetUrl(limit, offset) {
 //     return infitScrollUrl;
 // }
 // kan tas vekk når universal api er lagt inn over alt
-export const listingsUrlAll = `${baseUrl}auction/listings?sort=created&sortOrder=desc&_active=true&_seller=true&_bids=true`;
+export const listingsUrlAll = `${baseUrl}auction/listings?sortOrder=desc&_active=true&_seller=true&_bids=true`;
 export function getProfileUrl(user) {
     const profileUrl = `${baseUrl}auction/profiles/${user}?_listings=true`;
     return profileUrl;

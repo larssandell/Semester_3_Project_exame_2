@@ -13,6 +13,7 @@ import {
     thumbImgs,
     formBid,
     btnDel,
+    showBidBtn,
 } from '../document.js';
 import { timeDateConvI } from '../datetime.js';
 import { bidders } from '../templates/bidsmade.js';
@@ -58,6 +59,7 @@ export async function ShowSpecificListing() {
 
         if (getData.bids.length === 0) {
             productBid.textContent = 'No bids';
+            showBidBtn.style.display = 'none';
         } else {
             productBid.textContent = `${getData.bids[0].amount}`;
             for (let a = 0; a < bidsArray.length; a++) {
