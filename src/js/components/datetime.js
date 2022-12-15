@@ -8,8 +8,6 @@
 
 export function timeDateConv(data, t) {
     const apiDate = new Date(`${data[t].endsAt}`);
-    // const currentTime = new Date().getTime();
-    // console.log('apiDate', apiDate);
     const convDate = Intl.DateTimeFormat('default', {
         dateStyle: 'short',
         timeStyle: 'short',
@@ -29,11 +27,3 @@ export function timeDateConvI(data) {
     // console.log('timeDateConv', convDate);
     return converted;
 }
-// const timelineFormatter = new Intl.DateTimeFormat('fr-FR', {
-//     dateStyle: 'medium',
-//     timeStyle: 'short',
-// });
-
-// export function formatTimelineStamp(ele) {
-//     return timelineFormatter.format(ele);
-// }
