@@ -34,6 +34,7 @@ export const regPassword = document.getElementById('register__password');
 export const regPassErr = document.querySelector('.reg__password__error');
 export const regAvatar = document.getElementById('register__avatar');
 export const okMsg = document.querySelector('.msg__ok');
+export const regError = document.querySelector('.register__error');
 
 // Create entry Modal
 export const createForm = document.getElementById('create__entry');
@@ -85,6 +86,8 @@ export const bidError = document.querySelector('.bid__error');
 export const biddersWrapper = document.getElementById('bidders__wrapper');
 export const bidCounter = document.querySelector('.bid__counter');
 export const btnDel = document.getElementById('del__btn');
+export const showBidBtn = document.querySelector('#show__bidders');
+
 //               Images
 export const mainImage = document.getElementById('main__image');
 export const thumbImgs = document.getElementById('thumb__image');

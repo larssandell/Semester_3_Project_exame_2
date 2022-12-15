@@ -53,10 +53,11 @@ async function getAccountInfo() {
             } else {
                 badgeLi.textContent = `0`;
             }
-            const noWins = getData.wins.length;
+            const winsLen = getData.wins.length;
+            console.log(winsLen);
             // console.log('no wins', noWins);
-            if (noWins !== 0) {
-                badgeWin.textContent = `${getData.wins}`;
+            if (winsLen !== 0) {
+                badgeWin.textContent = `${winsLen}`;
             } else {
                 badgeWin.textContent = `0`;
             }

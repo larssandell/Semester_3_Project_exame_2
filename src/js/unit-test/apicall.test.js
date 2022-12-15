@@ -21,7 +21,7 @@ test('The apiCall function, and expect testApi.ok = true, and data recived = rec
     const recivedData = {
         accessToken: myToken,
         avatar: 'https://media.tenor.com/BknAE7UU36AAAAAd/lion-dota.gif',
-        credits: 993,
+        credits: 994,
         email: 'ronjarover@stud.noroff.no',
         name: 'ronja_rover',
     };
