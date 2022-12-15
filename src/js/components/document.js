@@ -87,6 +87,7 @@ export const biddersWrapper = document.getElementById('bidders__wrapper');
 export const bidCounter = document.querySelector('.bid__counter');
 export const btnDel = document.getElementById('del__btn');
 export const showBidBtn = document.querySelector('#show__bidders');
+export const productwrapper = document.getElementById('product__wrapper');
 
 //               Images
 export const mainImage = document.getElementById('main__image');
