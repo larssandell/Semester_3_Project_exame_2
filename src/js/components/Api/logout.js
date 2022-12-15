@@ -3,6 +3,6 @@ import { btnLogout } from '../document.js';
 export function logoutUser() {
     btnLogout.addEventListener('click', () => {
         localStorage.clear();
-        window.location.replace('/index.html');
+        window.location.replace('./index.html');
     });
 }

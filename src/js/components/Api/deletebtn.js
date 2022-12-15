@@ -19,7 +19,7 @@ export async function deletelisting() {
                 msgOk(`"Listing Deleted: "${getResponse.ok}`);
                 // console.log('deleted');
                 setTimeout(() => {
-                    document.location.href = '/index.html';
+                    document.location.href = './index.html';
                 }, 1500);
             }
         } catch (err) {

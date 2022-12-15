@@ -40,7 +40,7 @@ export async function searchFuncOne() {
                     return `
                                 <div class="col-sm-6 col-md-4 col-lg-3 mb-1">
                                 <div id="custom__card" class="card">
-                                    <a href="/product.html?id=${ele.id}">
+                                    <a href="./product.html?id=${ele.id}">
                                         <img
                                             class="card-img-top"
                                             src="${ele.media[0]}"

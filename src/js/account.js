@@ -42,12 +42,6 @@ async function getAccountInfo() {
             } else {
                 avatar.src = `${getData.avatar}`;
             }
-            // const imgSrc = getData.avatar;
-            // if (imgSrc.length !== 0) {
-            //     avatar.src = `${getData.avatar}`;
-            // } else {
-            //     avatar.src = '../../img/noun-person-5178759.png';
-            // }
             accName.textContent = `${getData.name}`;
             accMail.textContent = `${getData.email}`;
             accCredit.textContent = `${getData.credits}`;
