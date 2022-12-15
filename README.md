@@ -1,10 +1,9 @@
 # Semester_3_Project_exame_2
 
-Auction site
+Auction site, bid and win listings using API
 
 ## Built With
 
--   [cypress](hhttps://www.cypress.io/)
 -   [Bootstrap](https://getbootstrap.com)
 -   [ESlint](https://eslint.org/)
 -   [Babel]
@@ -33,4 +32,16 @@ npm install
 ```
 npm run build
 
+```
+
+4. Start:
+
+```
+npm run start
+```
+
+5. unit-test
+
+```
+npm run unit
 ```

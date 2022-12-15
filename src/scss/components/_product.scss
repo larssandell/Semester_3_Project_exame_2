@@ -1,0 +1,9 @@
+.bidders {
+    width: 200px;
+}
+#bidders__wrapper {
+    display: none;
+    &.showBidder {
+        display: block;
+    }
+}

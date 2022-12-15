@@ -2,13 +2,6 @@ header {
     .navbar-brand {
         color: getColour(main-gold);
     }
-    .nav-link.active {
-        color: getColour(main-gold);
-    }
-    .nav-link:hover,
-    .nav-link:focus {
-        color: rgb(183, 183, 183);
-    }
     .dropdown-item {
         color: #fff;
     }
@@ -16,7 +9,6 @@ header {
     .dropdown-item:focus {
         background-color: getColour(main-gold);
     }
-
     .navbar-nav {
         text-align: right;
     }
@@ -28,23 +20,45 @@ header {
         display: flex;
         justify-content: end;
     }
-}
-.navbar-nav {
-    .navbar-brand {
+    #active {
         color: getColour(main-gold);
     }
-    .nav-link {
+
+    .nav-link.active:focus {
+        color: getColour(main-gold);
+    }
+    .nav-link,
+    .nav-link:hover {
         color: #fff;
     }
-    .nav-link.active {
-        text-decoration: underline;
-        text-decoration-color: getColour(main-gold);
-        text-decoration-thickness: 2px;
-        text-underline-offset: 3px;
-    }
-    .nav-link:hover,
+    // .active {
+    //     color: getColour(main-gold);
+    //     // text-decoration: underline;
+    //     // text-decoration-color: getColour(main-gold);
+    //     // text-decoration-thickness: 2px;
+    //     // text-underline-offset: 2em;
+    // }
     .nav-link:focus {
         color: getColour(main-gold);
+    }
+    .nav-item {
+        opacity: 1;
+        position: relative;
+    }
+    .nav-item::before {
+        content: '';
+        display: block;
+        height: 2px;
+        background-color: getColour(main-gold);
+        position: absolute;
+        top: 2em;
+        left: 0;
+        right: 0;
+        transform: scale(0, 1);
+        transition: transform ease-in-out 400ms;
+    }
+    .nav-item:hover::before {
+        transform: scale(1, 1);
     }
     #nav__account {
         display: none;

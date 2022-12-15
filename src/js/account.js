@@ -1,5 +1,5 @@
-import { pageHelpers } from './components/helpers/helpers.mjs';
-import { accUrlId } from './components/urls.mjs';
+import { pageHelpers } from './components/helpers/helpers.js';
+import { accUrlId } from './components/urls.js';
 import {
     userName,
     accName,
@@ -8,72 +8,66 @@ import {
     badgeLi,
     badgeWin,
     loader,
-} from './components/document.mjs';
-import { getOptionAuth } from './components/Api/options.mjs';
-import { hamburgerAnimation } from './components/hamburger.mjs';
-import { updateAvatar } from './components/Api/changeavatar.mjs';
-import { showHistoryListings } from './components/templates/showhistory.mjs';
-import { showHistoryWins } from './components/templates/showwins.mjs';
-import { createEntryListing } from './components/Api/createlisting.mjs';
+} from './components/document.js';
+import { headersInfoAuth } from './components/Api/options.js';
+import { apiCall } from './components/Api/apiCall.js';
+import { hamburgerAnimation } from './components/hamburger.js';
+import { updateAvatar } from './components/Api/changeavatar.js';
+import { showHistoryListings } from './components/templates/showhistory.js';
+import { showHistoryWins } from './components/templates/showwins.js';
+import { createEntryListing } from './components/Api/createlisting.js';
 
 hamburgerAnimation();
 pageHelpers();
 updateAvatar();
 createEntryListing();
-// console.log(userName);
-// console.log(accUrlId);
-// console.log(token);
 
+accUrlId;
 async function getAccountInfo() {
     const isUser = userName;
-    console.log(isUser);
+    // console.log(isUser);
 
     if (isUser === isUser) {
         try {
-            const response = await fetch(accUrlId, getOptionAuth);
-            const data = await response.json();
+            const getResponse = await apiCall(accUrlId, 'GET', headersInfoAuth);
+            const getData = await getResponse.json();
             const avatar = document.querySelector('.acc__avatar');
+            // console.log(getData.avatar);
+            // console.log(getData);
+            document.title = `Auction Wars | ${getData.name}`;
 
-            // Legg til denne for hvis status = true
-            // if (!response.status === true)
-
-            // const listing = data.listings;
-            // console.log('reponse code', response.status);
-            // // console.log(listing);
-            // console.log(response.ok);
-            console.log(data);
-            // console.log(data.wins.length);
-            // console.log(data.avatar);
-            document.title = `Auction Wars | ${data.name}`;
-            const imgSrc = data.avatar;
-
-            if (imgSrc.length !== 0) {
-                avatar.src = `${data.avatar}`;
-            } else {
+            // console.log(imgSrc.length);
+            if (getData.avatar === '' || undefined) {
                 avatar.src = '../../img/noun-person-5178759.png';
+            } else {
+                avatar.src = `${getData.avatar}`;
             }
-            accName.textContent = `${data.name}`;
-            accMail.textContent = `${data.email}`;
-            accCredit.textContent = `${data.credits}`;
+            // const imgSrc = getData.avatar;
+            // if (imgSrc.length !== 0) {
+            //     avatar.src = `${getData.avatar}`;
+            // } else {
+            //     avatar.src = '../../img/noun-person-5178759.png';
+            // }
+            accName.textContent = `${getData.name}`;
+            accMail.textContent = `${getData.email}`;
+            accCredit.textContent = `${getData.credits}`;
 
-            const noListings = data.listings.length;
-            // console.log(noListings);
+            const noListings = getData.listings.length;
+            // console.log('no listings', noListings);
             if (noListings !== 0) {
-                badgeLi.textContent = `${data.listings.length}`;
+                badgeLi.textContent = `${getData.listings.length}`;
             } else {
                 badgeLi.textContent = `0`;
             }
-            const noWins = data.wins.length;
-            if (!noWins === 0) {
-                badgeWin.textContent = `${data.wins}`;
+            const noWins = getData.wins.length;
+            // console.log('no wins', noWins);
+            if (noWins !== 0) {
+                badgeWin.textContent = `${getData.wins}`;
             } else {
                 badgeWin.textContent = `0`;
             }
-            setTimeout(() => {
-                showHistoryListings(data);
-                showHistoryWins(data);
-            }, 20);
-
+            showHistoryListings(getData);
+            showHistoryWins(getData);
             loader.innerHTML = '';
         } catch (err) {
             console.log(err);

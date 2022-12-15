@@ -1,46 +1,33 @@
-import { getListingsUrl } from './components/urls.mjs';
-import { getOption } from './components/Api/options.mjs';
-import { loader } from './components/document.mjs';
-// import { pageHelpers } from './components/helpers/helpers.mjs';
-import { indexCards } from './components/templates.mjs';
-import { funcUserLogin } from '../js/components/Api/login.mjs';
-import { createEntryListing } from './components/Api/createlisting.mjs';
-import { hamburgerAnimation } from './components/hamburger.mjs';
-import { loggedIn } from './components/templates/loggedin.mjs';
-import { logoutUser } from './components/Api/logout.mjs';
-hamburgerAnimation();
-// pageHelpers();
-createEntryListing();
-funcUserLogin();
-loggedIn();
-logoutUser();
-async function getlistingsAll() {
-    try {
-        const response = await fetch(getListingsUrl(4), getOption);
-        const data = await response.json();
-        console.log(data);
-        console.log(response.ok);
-        for (let i = 0; i < data.length; i++) {
-            console.log('data[i]', data[i]);
-            console.log(data[i].media.length);
-            if (data[i].media.length !== 0) {
-                indexCards(data, i);
-                loader.innerHTML = '';
-            }
-        }
+import { getListingsUrl } from './components/urls.js';
+import { headersInfo } from './components/Api/options.js';
+import { loader } from './components/document.js';
+import { indexCards } from './components/templates.js';
+import { createEntryListing } from './components/Api/createlisting.js';
+import { hamburgerAnimation } from './components/hamburger.js';
+import { apiCall } from './components/Api/apiCall.js';
+import { pageHelpers } from './components/helpers/helpers.js';
 
-        // if (response.ok !== true) {
-        //     console.log('feil med API');
-        // } else {
-        //     console.log('du fikk kontakt');
-        //     loader.innerHTML = '';
-        //     console.log(data);
-        //     data.forEach(function (data) {
-        //         indexCards(data);
-        //     });
-        // }
+hamburgerAnimation();
+createEntryListing();
+pageHelpers();
+
+async function getLstings() {
+    try {
+        const getResponse = await apiCall(
+            getListingsUrl(4),
+            'GET',
+            headersInfo
+        );
+        const getData = await getResponse.json();
+        // console.log(getData);
+        // console.log(getResponse.ok);
+        for (let i = 0; i < getData.length; i++) {
+            // console.log('data[i]', getData[i]);
+            indexCards(getData, i, 'Ends at');
+            loader.innerHTML = '';
+        }
     } catch (err) {
         console.log(err);
     }
 }
-getlistingsAll();
+getLstings();
