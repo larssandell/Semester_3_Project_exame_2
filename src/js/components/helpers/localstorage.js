@@ -6,4 +6,3 @@ export function localStorage(data) {
     localStorage.setItem('accessToken', accessToken);
     localStorage.setItem('credit', userCredits);
 }
-// add credits
