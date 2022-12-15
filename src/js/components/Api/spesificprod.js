@@ -14,20 +14,27 @@ import {
     formBid,
     btnDel,
     showBidBtn,
+    productwrapper,
 } from '../document.js';
 import { timeDateConvI } from '../datetime.js';
 import { bidders } from '../templates/bidsmade.js';
 import { sortArray } from '../helpers/sort.js';
 import { deletelisting } from './deletebtn.js';
 import { headersInfo } from './options.js';
+import { catchError } from './catcherror.js';
 
 export async function ShowSpecificListing() {
     try {
         const getResponse = await apiCall(productSpecific, 'GET', headersInfo);
         // console.log(getResponse);
         const getData = await getResponse.json();
-        // console.log(getData);
+        // console.log(getData.errors);
+        if (getResponse.ok === false) {
+            catchError(getData, productwrapper);
+            return;
+        }
         // console.log(userName);
+
         if (userName === null) {
             formBid.innerHTML = `<p>Register to bid</p>`;
         }
