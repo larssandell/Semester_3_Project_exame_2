@@ -1,0 +1,33 @@
+.card__container {
+    text-decoration: none;
+    color: getColour(pri-black);
+    .auction_cards {
+        max-width: 15rem;
+        color: getColour(pri-black);
+        max-height: 335px;
+    }
+    .auction_cards:hover,
+    .auction_cards:focus {
+        opacity: 0.9;
+    }
+}
+
+#custom__card {
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
+}
+.card-img-top {
+    width: 100%;
+    height: 214px;
+    object-fit: cover;
+    object-position: center;
+}
+@media only screen and (max-width: 575px) {
+    .card-img-top {
+        width: 100%;
+        height: 214px;
+        object-fit: cover;
+        object-position: center;
+    }
+}

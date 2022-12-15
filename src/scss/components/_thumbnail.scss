@@ -1,0 +1,19 @@
+#current {
+    width: 250px;
+    height: 166px;
+    object-fit: cover;
+    object-position: center;
+}
+
+#change__image {
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 5px;
+    padding-bottom: 10px;
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+}
