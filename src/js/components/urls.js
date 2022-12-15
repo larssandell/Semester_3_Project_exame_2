@@ -26,7 +26,7 @@ export function listingsOffsetUrl(limit, offset) {
 //     return infitScrollUrl;
 // }
 // kan tas vekk når universal api er lagt inn over alt
-export const listingsUrlAll = `${baseUrl}auction/listings?sortOrder=desc&_active=true&_seller=true&_bids=true`;
+export const listingsUrlAll = `${baseUrl}auction/listings?sortOrder=desc&_active=true&_seller=true`;
 export function getProfileUrl(user) {
     const profileUrl = `${baseUrl}auction/profiles/${user}?_listings=true`;
     return profileUrl;
