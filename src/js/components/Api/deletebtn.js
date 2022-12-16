@@ -16,7 +16,7 @@ export async function deletelisting() {
             if (getResponse.ok !== true) {
                 // console.log('err');
             } else {
-                msgOk(`"Listing Deleted: "${getResponse.ok}`);
+                msgOk(`Listing Deleted: ${getResponse.ok}`);
                 // console.log('deleted');
                 setTimeout(() => {
                     document.location.href = './index.html';
