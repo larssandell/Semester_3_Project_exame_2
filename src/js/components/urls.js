@@ -24,7 +24,6 @@ export function listingsOffsetUrl(limit, offset) {
 export const listingUrlFilterActive = `${baseUrl}auction/listings?_active=true`;
 export const listingUrlFilterBids = `${baseUrl}auction/listings?_active=true&_bids=true`;
 export const listingUrlNoFilter = `${baseUrl}auction/listings?_active=true`;
-export const listingsUrlAll = `${baseUrl}auction/listings?sortOrder=desc&_active=true&_seller=true`;
 export function getProfileUrl(user) {
     const profileUrl = `${baseUrl}auction/profiles/${user}?_listings=true`;
     return profileUrl;
