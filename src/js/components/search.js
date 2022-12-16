@@ -1,5 +1,5 @@
 import { searchInput } from './document.js';
-import { listingsUrlAll } from './urls.js';
+import { listingUrlNoFilter } from './urls.js';
 import { headersInfo } from './Api/options.js';
 import { indexMain } from './document.js';
 import { timeDateConvI } from './datetime.js';
@@ -9,7 +9,7 @@ export async function searchFuncOne() {
     async function getlistingsAll() {
         try {
             const getResponse = await apiCall(
-                listingsUrlAll,
+                listingUrlNoFilter,
                 'GET',
                 headersInfo
             );
