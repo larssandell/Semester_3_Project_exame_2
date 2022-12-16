@@ -1,5 +1,9 @@
 # Semester_3_Project_exame_2
 
+# Action Wars
+
+![image of the page auction wars](https://postimg.cc/YvdXQrzJ)
+
 Auction site, bid and win listings using API
 
 ## Built With
