@@ -2,7 +2,7 @@
 
 # Action Wars
 
-![image of the page auction wars](https://postimg.cc/YvdXQrzJ)
+(https://postimg.cc/YvdXQrzJ)
 
 Auction site, bid and win listings using API
 
