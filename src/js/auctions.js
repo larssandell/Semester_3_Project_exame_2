@@ -8,12 +8,14 @@ import { searchFuncOne } from './components/search.js';
 import { indexCards } from './components/templates.js';
 import { apiCall } from './components/Api/apiCall.js';
 import { viewMore } from './components/showmore.js';
+import { filterAllBtn } from './components/Api/filter.js';
 
 searchFuncOne();
 createEntryListing();
 hamburgerAnimation();
 pageHelpers();
 viewMore();
+filterAllBtn();
 
 async function getListing() {
     try {

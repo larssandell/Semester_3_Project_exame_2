@@ -42,7 +42,7 @@ export async function ShowSpecificListing() {
 
         if (userName === getData.seller.name) {
             deletelisting();
-            console.log('eier');
+            // console.log('eier');
             formBid.innerHTML = '';
             btnDel.style.display = 'block';
         }
