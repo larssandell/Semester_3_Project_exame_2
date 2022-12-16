@@ -21,11 +21,9 @@ export function listingsOffsetUrl(limit, offset) {
     const listingsUrlAll = `${baseUrl}auction/listings?limit=${limit}&offset=${offset}&_active=true`;
     return listingsUrlAll;
 }
-// export function infitScrollUrl(limit, page) {
-//     const infitScrollUrl = `${baseUrl}auction/listings?sort=created&sortOrder=desc&limit=${limit}&_active=true&_seller=true&_bids=true&_page=${page}`;
-//     return infitScrollUrl;
-// }
-// kan tas vekk når universal api er lagt inn over alt
+export const listingUrlFilterActive = `${baseUrl}auction/listings?_active=true`;
+export const listingUrlFilterBids = `${baseUrl}auction/listings?_active=true&_bids=true`;
+export const listingUrlNoFilter = `${baseUrl}auction/listings?_active=true`;
 export const listingsUrlAll = `${baseUrl}auction/listings?sortOrder=desc&_active=true&_seller=true`;
 export function getProfileUrl(user) {
     const profileUrl = `${baseUrl}auction/profiles/${user}?_listings=true`;
@@ -33,7 +31,6 @@ export function getProfileUrl(user) {
 }
 export const profilUrl = `${baseUrl}auction/profiles/${userName}`;
 export const accUrlId = `${baseUrl}auction/profiles/${userName}?_listings=true`;
-//
 export const allProfilesUrl = `${baseUrl}auction/profiles`;
 const productOnly = 'auction/listings/' + id;
 export const productUrl = 'auction/listings/' + id + '?_seller=true&_bids=true';
@@ -41,7 +38,4 @@ export const productSpecific = `${baseUrl}${productUrl}`;
 export const deleteList = `${baseUrl}${productOnly}`;
 export const placeBidUrl = `${baseUrl}${bidUrl}/bids`;
 export const profileAvatar = `${baseUrl}auction/profiles/${userName}/media`;
-
 export const productSpecificAll = `${baseUrl}${productUrl}${sellerBids}`;
-// GET /api/v1/auction/listings?sort=created&sortOrder=desc
-// GET /api/v1/auction/listings?sort=title&sortOrder=asc

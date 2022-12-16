@@ -18,7 +18,7 @@ export function indexCards(data, i, whattext) {
                                         onerror="this.src = './img/no-image.png';" alt="No image provided"
                                     />
                                 </a>
-                                <div class="card-body text-center">
+                                <div id="custom__body" class="card-body text-center">
                                     <p class="card-title">${data[i].title}</p>
 
                                 </div>

@@ -103,6 +103,8 @@ export const cardWrapper = document.querySelector('.card__wrapper');
 export const searchInput = document.getElementById('search__input');
 export const viewMoreBtn = document.getElementById('auction__view-more');
 export const moreLoader = document.querySelector('.more__loader');
+export const filterAll = document.getElementById('filter__all');
+export const filterBids = document.getElementById('filter__bids');
 
 // account page
 

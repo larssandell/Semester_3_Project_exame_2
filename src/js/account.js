@@ -54,7 +54,7 @@ async function getAccountInfo() {
                 badgeLi.textContent = `0`;
             }
             const winsLen = getData.wins.length;
-            console.log(winsLen);
+            // console.log(winsLen);
             // console.log('no wins', noWins);
             if (winsLen !== 0) {
                 badgeWin.textContent = `${winsLen}`;

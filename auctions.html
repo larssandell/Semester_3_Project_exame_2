@@ -31,19 +31,17 @@
                             class="navbar-brand mb-0 h1 user-select-none text-uppercase fw-bold"
                         >
                             <img
-                                class="d-inline-block align-center"
+                                class="d-inline-block site__logo align-center"
                                 src="./img/logowhite-gold.png"
                                 alt="Site logo, judge hammer"
-                                width="auto"
-                                height="45"
                             />
-                            Auction war
+                            <h1>Auction wars</h1>
                         </a>
                     </div>
                     <div class="col header__actions">
                         <a
                             id="btn__login"
-                            class="btn btn-outline-light btn-sm"
+                            class="btn btn-outline-light"
                             data-bs-toggle="modal"
                             role="button"
                             href="#login__modal"
@@ -54,7 +52,7 @@
                         <a
                             id="btn__register"
                             type="button"
-                            class="btn btn-outline-warning btn-sm ms-1"
+                            class="btn btn-outline-warning ms-1"
                             data-bs-toggle="modal"
                             role="button"
                             href="#register__modal"
@@ -64,7 +62,7 @@
                         <a
                             id="btn__logout"
                             type="button"
-                            class="btn btn-outline-warning btn-sm ms-1"
+                            class="btn btn-outline-warning ms-1"
                             data-bs-toggle="modal"
                             role="button"
                             href="#"
@@ -201,6 +199,27 @@
                             </div>
                         </div>
                     </div>
+                    <div class="dropdown">
+                        <button
+                            class="btn btn-lg btn-outline-altgold mb-3 dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            Filter
+                        </button>
+                        <ul class="dropdown-menu bg-dark text-white">
+                            <li class="filter__item">
+                                <button
+                                    class="dropdown-item text-white"
+                                    id="filter__all"
+                                >
+                                    All
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
                     <div id="index__main" class="row gy-3 text-black"></div>
                     <div class="mt-3 d-flex">
                         <div class="align-self-end ml-auto">
@@ -572,7 +591,7 @@
                 </div>
             </div>
             <div class="container text-start d-flex align-items-center h-100">
-                <p class="mb-0">2022 &copy; Auction House</p>
+                <p class="mb-0">2022 &copy; Auction wars</p>
             </div>
         </footer>
     </body>
